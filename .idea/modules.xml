@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:/Users/Public/IP/Android.iml" filepath="C:/Users/Public/IP/Android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/IP.iml" filepath="$PROJECT_DIR$/IP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Proiect.iml" filepath="$PROJECT_DIR$/Proiect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android.iml" filepath="$PROJECT_DIR$/Android.iml" />
+      <module fileurl="file://C:\Users\Public\IP\Android.iml" filepath="C:\Users\Public\IP\Android.iml" />
+      <module fileurl="file://E:\DOCUMENTS\FACULTATE\Anul 3\SEMESTRUL 2\IP\IP\Android\IP.iml" filepath="E:\DOCUMENTS\FACULTATE\Anul 3\SEMESTRUL 2\IP\IP\Android\IP.iml" />
+      <module fileurl="file://E:\DOCUMENTS\FACULTATE\Anul 3\SEMESTRUL 2\IP\IP\Android\Proiect.iml" filepath="E:\DOCUMENTS\FACULTATE\Anul 3\SEMESTRUL 2\IP\IP\Android\Proiect.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:/Users/Public/IP/app/app.iml" filepath="C:/Users/Public/IP/app/app.iml" />
+      <module fileurl="file://C:\Users\Public\IP\app\app.iml" filepath="C:\Users\Public\IP\app\app.iml" />
     </modules>
   </component>
 </project>
