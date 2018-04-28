@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "420897923893",
+    "firebase_url": "https://whatwherewho-db2ce.firebaseio.com",
+    "project_id": "whatwherewho-db2ce",
+    "storage_bucket": "whatwherewho-db2ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420897923893:android:a9b861ec6593082d",
+        "android_client_info": {
+          "package_name": "com.example.pemil.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420897923893-ngm8aakhbd602pp3seqd3t00mafpfton.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJaMaOdxzfX6Ptgv9fw-k-a0-mkeJ61-A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
