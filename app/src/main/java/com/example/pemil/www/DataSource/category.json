@@ -1,0 +1,470 @@
+{
+  "Category":{
+    "General Knowledge":[
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Virgin Trains, Virgin Atlantic and Virgin Racing, are all companies owned by which famous entrepreneur?   ",
+        "correct_answer":"Richard Branson",
+        "incorrect_answers":[
+          "Alan Sugar",
+          "Donald Trump",
+          "Bill Gates"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What's the name of Batman's  parents?",
+        "correct_answer":"Thomas &amp; Martha",
+        "incorrect_answers":[
+          "Joey &amp; Jackie",
+          "Jason &amp; Sarah",
+          "Todd &amp; Mira"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"The Great Wall of China is visible from the moon.",
+        "correct_answer":"False",
+        "incorrect_answers":[
+          "True"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What word represents the letter 'T' in the NATO phonetic alphabet?",
+        "correct_answer":"Tango",
+        "incorrect_answers":[
+          "Target",
+          "Taxi",
+          "Turkey"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Red Vines is a brand of what type of candy?",
+        "correct_answer":"Licorice",
+        "incorrect_answers":[
+          "Lollipop",
+          "Chocolate",
+          "Bubblegum"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"When you cry in space, your tears stick to your face.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"The New York Times slogan is, \"All the News That's Fit to ... \"",
+        "correct_answer":"Print",
+        "incorrect_answers":[
+          "Digest",
+          "Look",
+          "Read"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Which restaurant's mascot is a clown?",
+        "correct_answer":"McDonald's",
+        "incorrect_answers":[
+          "Whataburger",
+          "Burger King",
+          "Sonic"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"Dihydrogen Monoxide was banned due to health risks after being discovered in 1983 inside swimming pools and drinking water.",
+        "correct_answer":"False",
+        "incorrect_answers":[
+          "True"
+        ]
+      },
+      {
+        "category":"General Knowledge",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Which sign of the zodiac comes between Virgo and Scorpio?",
+        "correct_answer":"Libra",
+        "incorrect_answers":[
+          "Gemini",
+          "Taurus",
+          "Capricorn"
+        ]
+      }
+    ],
+    "Entertainment: Books":[
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Which famous book is sub-titled 'The Modern Prometheus'?",
+        "correct_answer":"Frankenstein",
+        "incorrect_answers":[
+          "Dracula",
+          "The Strange Case of Dr. Jekyll and Mr. Hyde ",
+          "The Legend of Sleepy Hollow"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What was the name of Captain Nemo's submarine in \"20,000 Leagues Under the Sea\"?",
+        "correct_answer":"The Nautilus",
+        "incorrect_answers":[
+          "The Neptune",
+          "The Poseidon  ",
+          "The Atlantis"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Which of the following is the world's best-selling book?",
+        "correct_answer":"The Lord of the Rings",
+        "incorrect_answers":[
+          "The Little Prince",
+          "Harry Potter and the Philosopher's Stone",
+          "The Da Vinci Code"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"The \"Berenstein Bears\" is the correct spelling of the educational children's book series' name.",
+        "correct_answer":"False",
+        "incorrect_answers":[
+          "True"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Who wrote the young adult novel \"The Fault in Our Stars\"?",
+        "correct_answer":"John Green",
+        "incorrect_answers":[
+          "Stephenie Meyer",
+          "Suzanne Collins",
+          "Stephen Chbosky"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"Stephen Chbosky wrote the book 'The Perks of Being A Wallflower'.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Who was the author of the 1954 novel, \"Lord of the Flies\"?",
+        "correct_answer":"William Golding",
+        "incorrect_answers":[
+          "Stephen King",
+          "F. Scott Fitzgerald",
+          "Hunter Fox"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"\"Elementary, my dear Watson\" is a phrase that is never truly said within the Conan Doyle books of Sherlock Holmes.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What is the name of the protagonist of J.D. Salinger's novel Catcher in the Rye?",
+        "correct_answer":"Holden Caulfield",
+        "incorrect_answers":[
+          "Fletcher Christian",
+          "Jay Gatsby",
+          "Randall Flagg"
+        ]
+      },
+      {
+        "category":"Entertainment: Books",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What is the title of the first Sherlock Holmes book by Arthur Conan Doyle?",
+        "correct_answer":"A Study in Scarlet",
+        "incorrect_answers":[
+          "The Sign of the Four",
+          "A Case of Identity",
+          "The Doings of Raffles Haw"
+        ]
+      }
+    ],
+    "Entertainment: Film":[
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What is the highest grossing film of all time (without adjusting for inflation)?",
+        "correct_answer":"Avatar",
+        "incorrect_answers":[
+          "Jurassic World",
+          "Star Wars: The Force Awakens",
+          "Titanic"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"Matt Damon played an astronaut stranded on an extraterrestrial planet in both of the movies Interstellar and The Martian.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"This movie contains the quote, \"I feel the need ... the need for speed!\"",
+        "correct_answer":"Top Gun",
+        "incorrect_answers":[
+          "Days of Thunder",
+          "The Color of Money",
+          "Cocktail"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What is the orange and white bot's name in \"Star Wars: The Force Awakens\"?",
+        "correct_answer":"BB-8",
+        "incorrect_answers":[
+          "BB-3",
+          "AA-A",
+          "R2-D2"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"The word \"Inception\" came from the 2010 blockbuster hit \"Inception\".",
+        "correct_answer":"False",
+        "incorrect_answers":[
+          "True"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Who in Pulp Fiction says \"No, they got the metric system there, they wouldn't know what the fuck a Quarter Pounder is.\"",
+        "correct_answer":"Vincent Vega",
+        "incorrect_answers":[
+          "Jules Winnfield",
+          "Jimmie Dimmick",
+          "Butch Coolidge"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"In \"Jurassic World\", what is the name of the dinosaur that is a genetic hybrid?",
+        "correct_answer":"Indominus Rex",
+        "incorrect_answers":[
+          "Mosasaurus",
+          "Pteranodon",
+          "Tyrannosaurus Rex "
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"In the 1992 film \"Army of Darkness\", what name does Ash give to his double-barreled shotgun?",
+        "correct_answer":"Boomstick",
+        "incorrect_answers":[
+          "Bloomstick",
+          "Blastbranch",
+          "2-Pump Chump"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"In the 1995 film \"Balto\", who are Steele's accomplices?",
+        "correct_answer":"Kaltag, Nikki, and Star",
+        "incorrect_answers":[
+          "Dusty, Kirby, and Ralph",
+          "Nuk, Yak, and Sumac",
+          "Jenna, Sylvie, and Dixie"
+        ]
+      },
+      {
+        "category":"Entertainment: Film",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What is the name of the island that \"Jurassic Park\" is built on?",
+        "correct_answer":"Isla Nublar",
+        "incorrect_answers":[
+          "Isla Sorna",
+          "Isla Muerta",
+          "Isla Pena"
+        ]
+      }
+    ],
+    "Entertainment: Music":[
+      {
+        "category":"Entertainment: Music",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"The music group Daft Punk got their name from a negative review they recieved.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Who wrote the Sinead O`Connor hit 'Nothing Compares 2 U'?",
+        "correct_answer":"Prince",
+        "incorrect_answers":[
+          "Michael Jackson",
+          "Cameo",
+          "Rick James"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"\"Some people call me the space cowboy\" is the first line from what song?",
+        "correct_answer":"The Joker",
+        "incorrect_answers":[
+          "Fandango",
+          "Take The Money and Run",
+          "Fly Like an Eagle"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Where does the Mac part of the name Fleetwood Mac come from?",
+        "correct_answer":"John McVie",
+        "incorrect_answers":[
+          "Christine McVie",
+          "Mac McAnally",
+          "David Tennant"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"In an orchestra, what is the lowest member of the brass family?",
+        "correct_answer":"Tuba",
+        "incorrect_answers":[
+          "Trombone",
+          "Contrabass",
+          "Bassoon"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"The alternative rock band, They Might Be Giants, released their album 'Flood' in 1990. ",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"Kanye West at 2009 VMA's interrupted which celebrity?",
+        "correct_answer":"Taylor Swift",
+        "incorrect_answers":[
+          "MF DOOM",
+          "Beyonce",
+          "Beck"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What collaborative album was released by Kanye West and Jay-Z in 2011?",
+        "correct_answer":"Watch the Throne",
+        "incorrect_answers":[
+          "Distant Relatives",
+          "What a Time to be Alive",
+          "Unfinished Business"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"multiple",
+        "difficulty":"easy",
+        "question":"What album did Bon Iver release in 2016?",
+        "correct_answer":"22, A Million",
+        "incorrect_answers":[
+          "Bon Iver, Bon Iver",
+          "Blood Bank EP",
+          "For Emma, Forever Ago"
+        ]
+      },
+      {
+        "category":"Entertainment: Music",
+        "type":"boolean",
+        "difficulty":"easy",
+        "question":"Stevie Wonder's real name is Stevland Hardaway Morris.",
+        "correct_answer":"True",
+        "incorrect_answers":[
+          "False"
+        ]
+      }
+    ]
+  }
+}
