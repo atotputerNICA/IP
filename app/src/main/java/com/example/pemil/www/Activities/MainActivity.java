@@ -1,15 +1,12 @@
 package com.example.pemil.www.Activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;
+    private TextView signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.input_user_password);
 
         mAuth = FirebaseAuth.getInstance();
+
+        signUp = (TextView) findViewById(R.id.link_signup);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
