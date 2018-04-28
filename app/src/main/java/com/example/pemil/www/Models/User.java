@@ -10,11 +10,11 @@ import android.graphics.Bitmap;
 
 //@IgnoreExtraProperties
 public class User {
-    private int id;
+    private Long id;
     private String username;
     private String email;
     private Bitmap profileImage;
-    private int age;
+    private Long age;
     private String country;
     private Statistics statistics;
 
@@ -27,11 +27,11 @@ public class User {
         this.email = email;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -59,11 +59,11 @@ public class User {
         this.profileImage = profileImage;
     }
 
-    public int getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 

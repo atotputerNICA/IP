@@ -7,4 +7,8 @@ package com.example.pemil.www.Models;
  */
 
 class Statistics {
+
+    public Statistics() {
+
+    }
 }
