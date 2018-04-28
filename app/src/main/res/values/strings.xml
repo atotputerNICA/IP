@@ -3,7 +3,6 @@
     <string name="facebook_app_id">1733467400072738</string>
     <string name="fb_login_protocol_scheme">fb1733467400072738</string>
     <string name="image_description">a_beautiful_string</string>
-    <string name="user_id_hint">User ID</string>
     <string name="user_passwd_hint">Password</string>
     <string name="no_account">No account yet?</string>
     <string name="join"> <u>Join the fun today!</u></string>
