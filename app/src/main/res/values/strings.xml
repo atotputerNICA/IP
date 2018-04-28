@@ -2,7 +2,21 @@
     <string name="app_name">WWW</string>
     <string name="facebook_app_id">1733467400072738</string>
     <string name="fb_login_protocol_scheme">fb1733467400072738</string>
+    <string name="todo">TODO</string>
+    <string name="username">username</string>
+    <string name="email">Email</string>
+    <string name="age">Age</string>
+    <string name="edit">Edit</string>
+    <string name="category">CATEGORY</string>
+    <string name="category1">Category1</string>
+    <string name="category2">Category2</string>
+    <string name="category3">Category3</string>
+    <string name="category4">Category4</string>
+    <string name="hint_email">Edit text for email</string>
+
+    <!--Login-->
     <string name="image_description">a_beautiful_string</string>
+    <string name="user_id_hint">User ID</string>
     <string name="user_passwd_hint">Password</string>
     <string name="no_account">No account yet?</string>
     <string name="join"> <u>Join the fun today!</u></string>
@@ -10,16 +24,47 @@
     <string name="facebook_login">Sing in with Facebook</string>
     <string name="google_login">Sing in with Google</string>
     <string name="www"><i>What, Where, Who</i></string>
-    <string name="todo">TODO</string>
-    <string name="username">username</string>
-    <string name="email">Email</string>
-    <string name="age">Age</string>
+
+    <!-- Strings related to signUp -->
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="birthday">Select birthday</string>
+    <string name="zone_number">Zone</string>
     <string name="country">Country</string>
-    <string name="edit">Edit</string>
-    <string name="category">CATEGORY</string>
-    <string name="category1">Category1</string>
-    <string name="category2">Category2</string>
-    <string name="category3">Category3</string>
-    <string name="category4">Category4</string>
-    <string name="hint_email">edit text for email</string>
+    <string name="county">County</string>
+    <string name="town">Town</string>
+    <string name="street">Str.</string>
+    <string name="number">Nr.</string>
+    <string name="flat">Flat</string>
+    <string name="apt">Ap.</string>
+    <string name="floor">Floor</string>
+    <string name="contacts">Contacts</string>
+    <string name="phone">Telephone</string>
+    <string name="mail">Email (example@domain)</string>
+    <string name="user_profile">Profile</string>
+    <string name="user_id">ID</string>
+    <string name="password">Password</string>
+    <string name="password_confirm">Confirm password</string>
+    <string name="personal_data">Personal data</string>
+    <string name="register">Sign-up</string>
+    <string name="needed">Required field</string>
+    <string name="birthday_needed">Birthday is required</string>
+    <string name="passwords_must_match">Passwords do not match</string>
+    <string name="password_type">Password must have at least one caps, one number and a symbol!</string>
+    <string name="have_to_complete">There are uncompleted fields!</string>
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string name="error_invalid_password">Invalid password!</string>
 </resources>
