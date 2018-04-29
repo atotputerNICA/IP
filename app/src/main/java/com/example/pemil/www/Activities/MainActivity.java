@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pemil.www.DataSource.CategoryDataSource;
+import com.example.pemil.www.Models.Category;
 import com.example.pemil.www.R;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -23,6 +25,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.oob.SignUp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -32,6 +35,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+/**
+ * Login Activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 9001;
@@ -51,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView signUp;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
@@ -62,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         signUp = (TextView) findViewById(R.id.link_signup);
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,12 +82,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onStart() {
+
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+
+        /* Check if user is signed in (non-null) and update UI accordingly.*/
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
+    /**
+     * Login with email and password
+     * Checks if in the data base there is an user with the specified
+     * credentials
+     * @param view
+     */
     public void loginWithEmail(View view) {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
@@ -93,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(LOGIN_TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
@@ -107,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // [START_EXCLUDE]
                         if (!task.isSuccessful()) {
+
 //                            mStatusTextView.setText(R.string.auth_failed);
                             //TODO: add TextView for displaying error at login
                         }
@@ -116,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
         // [END sign_in_with_email]
     }
 
+    /**
+     * Validates typed credentials
+     * @return ture if the credentials are entered correctly
+     *          false otherwise
+     */
     private boolean validateForm() {
         boolean valid = true;
 
@@ -138,6 +163,10 @@ public class MainActivity extends AppCompatActivity {
         return valid;
     }
 
+    /**
+     * Login with Google API
+     * @param view
+     */
     public void loginWithGoogle(View view) {
         signInMethod = GOOGLE;
 
@@ -149,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
         signIn();
     }
 
+    /**
+     * Initialize Login with Facebook API
+     *
+     * @param view
+     */
     public void loginWithFacebook(View view) {
         signInMethod = FACEBOOK;
 
@@ -182,6 +216,10 @@ public class MainActivity extends AppCompatActivity {
         // [END initialize_fblogin]
     }
 
+    /**
+     * Login Implementation
+     * @param token
+     */
     private void handleFacebookAccessToken(AccessToken token) {
         Log.d(FACEBOOK_TAG, "handleFacebookAccessToken:" + token);
 
@@ -206,6 +244,9 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Gets intent for Google login screen
+     */
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -265,9 +306,8 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
         if (user != null) {
-            //TODO: open another intent because the user has already logged in for the first time
-        } else {
-            //TODO: have fun pwp
+            Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+            startActivity(intent);
         }
     }
 

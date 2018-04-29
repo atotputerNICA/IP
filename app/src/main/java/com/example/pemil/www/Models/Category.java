@@ -5,12 +5,16 @@ import java.util.HashMap;
 
 /**
  * @author atotputerNICA
- * class representing
+ * class representing the category table
  */
 public class Category {
+
     private String name;
     private ArrayList<Question> questions;
 
+    public Category() {
+
+    }
     public Category(String name, ArrayList<Question> questions) {
         this.name = name;
         this.questions = questions;

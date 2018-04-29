@@ -1,34 +1,105 @@
 package com.example.pemil.www.DataSource;
+import android.util.Log;
+
 import com.example.pemil.www.Models.Category;
-import com.google.firebase.storage.*;
+import com.example.pemil.www.Models.Question;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
+import org.json.*;
+
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
  * @author atotputerNICA
  *
  */
-public class CategoryDataSource {
 
-    private StorageReference mStorageRef;
-    private StorageReference categoryStorageRef;
+public class CategoryDataSource {
+    private FirebaseDatabase dataBase ;
+    private DatabaseReference categoryDataBaseRef;
     private static final int NUM_OF_QUESTIONS = 10;
     private static final int NUM_OF_CATEGORIES = 4;
-    private static final String CATEGORY_1 = "General Knowledge/";
-    private static final String CATEGORY_2 = "Entertainment: Books/";
-    private static final String CATEGORY_3 = "Entertainment: Film/";
-    private static final String CATEGORY_4 = "Entertainment: Music/";
-
+    private static final String[] CATEGORIES = {
+            "General Knowledge",
+            "Entertainment: Books",
+            "Entertainment: Film",
+            "Entertainment: Music"
+    };
+   //private static ArrayList<Category> categories;
+   // public boolean stop = false;
 
     public CategoryDataSource() {
-        mStorageRef = FirebaseStorage.getInstance().getReference();
-        categoryStorageRef = FirebaseStorage.getInstance().getReference("Category/");
+
+        FirebaseDatabase dataBase = FirebaseDatabase.getInstance();
+        categoryDataBaseRef = dataBase.getReference("Category");
+        //categories = new ArrayList<>(NUM_OF_CATEGORIES);
+        //selectCategories();
+        //printCategories();
     }
 
-    public ArrayList<Category> setCategories() {
-        return null;
+//    /**
+//     * select from database
+//     * @return list of Category Object
+//     */
+//    public void selectCategories() {
+//
+//        for (final String categoryString : CATEGORIES) {
+//
+//            categoryDataBaseRef.child(categoryString).addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    Category c = new Category();
+//                    c.setName(categoryString);
+//                    ArrayList<Question> questions = new ArrayList<>(NUM_OF_QUESTIONS);
+//                    if (dataSnapshot.exists() && !stop) {
+//                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
+//                            Question q = dataSnapshot.child(Integer.toString(i)).getValue(Question.class);
+//                            questions.add(q);
+//                        }
+//                        c.setQuestions(questions);
+//
+//                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
+//                            Log.i("FAAAAAAAAAAAAAAA",c.getQuestions().get(i).toString());
+//                        }
+//                        CategoryDataSource.categories.add(c);
+//                        Log.i("FAAAA", "" + CategoryDataSource.categories.size());
+//                    } else {
+//                        categoryDataBaseRef.child(categoryString).removeEventListener(this);
+//                    }
+//                    if (categoryString.equals(CATEGORIES[3])) {
+//
+//                        stop = true;
+//                        Log.i("faaaaaaaaa","hsuajs"+ stop);
+//                    }
+//                }
+//
+//
+//                @Override
+//                public void onCancelled(DatabaseError error) {
+//
+//                }
+//            });
+//
+//
+//        }
+
+
+
+//    }
+
+    public void printCategories(ArrayList<Category> categories) {
+
+        Log.i("Category DataSource", "cat" + categories.size());
+        for (Category c : categories) {
+            Log.i("Category DataSource",c.getName());
+            for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
+                Log.i("Category DataSource",c.getQuestions().get(i).toString());
+            }
+        }
     }
 
 

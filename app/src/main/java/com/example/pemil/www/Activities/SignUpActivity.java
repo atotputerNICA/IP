@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
@@ -20,10 +21,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.pemil.www.Models.User;
 import com.example.pemil.www.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,6 +62,8 @@ public class SignUpActivity extends AppCompatActivity {
     private ImageView privacy1;
     private ImageView privacy2;
     private ImageView profileImage;
+    private ProgressBar progressBar;
+    private FirebaseAuth auth;
 
     private PasswordState state1 = PasswordState.OFF;
     private PasswordState state2 = PasswordState.OFF;
@@ -91,7 +99,10 @@ public class SignUpActivity extends AppCompatActivity {
         privacy1 = (ImageView) findViewById(R.id.visibility_1);
         privacy2 = (ImageView) findViewById(R.id.visibility_2);
         profileImage = (ImageView) findViewById(R.id.profileImage);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        // get Firebase instance
+        auth =  FirebaseAuth.getInstance();
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,24 +154,42 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (allFieldsAreCompletedCorrectly()) {
-                    //TODO modify here
-                    String date = Integer.toString(month) + "\\" +
-                            Integer.toString(day) + "\\" +
-                            Integer.toString(year);
+                    progressBar.setVisibility(View.VISIBLE);
 
-                    BitmapDrawable drawable = (BitmapDrawable) profileImage.getDrawable();
+                    auth.createUserWithEmailAndPassword(mail.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Toast.makeText(SignUpActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(SignUpActivity.this, "Authentication failed." + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        String date = Integer.toString(month) + "\\" +
+                                                Integer.toString(day) + "\\" +
+                                                Integer.toString(year);
 
-                    User user = new User(drawable.getBitmap(),
-                            name.getText().toString(),
-                            surname.getText().toString(),
-                            country.getText().toString(),
-                            date,
-                            Long.parseLong(telephone.getText().toString()),
-                            mail.getText().toString(),
-                            id.getText().toString());
-                    user.sendToDB();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
+                                        BitmapDrawable drawable = (BitmapDrawable) profileImage.getDrawable();
+                                        //create user
+                                        User user = new User(drawable.getBitmap(),
+                                                name.getText().toString(),
+                                                surname.getText().toString(),
+                                                country.getText().toString(),
+                                                date,
+                                                Long.parseLong(telephone.getText().toString()),
+                                                mail.getText().toString(),
+                                                id.getText().toString());
+                                        user.sendToDB();
+                                        Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
+
                 }
             }
         });
@@ -168,6 +197,11 @@ public class SignUpActivity extends AppCompatActivity {
         passwordControl();
     }
 
+    protected void onResume() {
+
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
+    }
     private void passwordControl() {
         privacy1.setOnClickListener(new View.OnClickListener() {
             @Override
