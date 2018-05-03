@@ -11,34 +11,26 @@ import android.util.Log;
 
 //@IgnoreExtraProperties
 public class User {
-    private Bitmap profileImage;
+
     private String name;
     private String surname;
     private String country;
-    private String birthdate;
+    private String birthday;
     private Long telephone;
     private String email;
     private String id;
     private String password;
 
-    public User(Bitmap photo, String name, String surname, String country,
-                String birthdate, Long telephone, String email, String id) {
-        this.profileImage = photo;
+    public User(String name, String surname, String country, String birthday, Long telephone,
+                String email, String id, String password) {
         this.name = name;
         this.surname = surname;
         this.country = country;
-        this.birthdate = birthdate;
+        this.birthday = birthday;
         this.telephone = telephone;
         this.email = email;
         this.id = id;
-    }
-
-    public Bitmap getProfileImage() {
-        return profileImage;
-    }
-
-    public void setProfileImage(Bitmap profileImage) {
-        this.profileImage = profileImage;
+        this.password = password;
     }
 
     public String getName() {
@@ -65,12 +57,12 @@ public class User {
         this.country = country;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public Long getTelephone() {
@@ -105,8 +97,17 @@ public class User {
         this.password = password;
     }
 
-    public void sendToDB() {
-        String s = this.name + this.surname + this.id + this.email + this.telephone + this.country + this.birthdate;
-        Log.e("SOMETHING TAG BLA BLA", s);
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", country='" + country + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", telephone=" + telephone +
+                ", email='" + email + '\'' +
+                ", id='" + id + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

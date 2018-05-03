@@ -24,6 +24,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
 
         <activity android:name=".Activities.CategoryActivity"/>
+        <activity android:name=".Activities.GameActivity"/>
 
         <activity android:name=".Activities.SignUpActivity"/>
 

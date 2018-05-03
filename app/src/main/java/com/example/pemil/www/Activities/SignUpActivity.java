@@ -16,6 +16,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -30,10 +31,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -63,7 +69,10 @@ public class SignUpActivity extends AppCompatActivity {
     private ImageView privacy2;
     private ImageView profileImage;
     private ProgressBar progressBar;
+
     private FirebaseAuth auth;
+    private FirebaseDatabase dataBase ;
+    private DatabaseReference table;
 
     private PasswordState state1 = PasswordState.OFF;
     private PasswordState state2 = PasswordState.OFF;
@@ -103,6 +112,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         // get Firebase instance
         auth =  FirebaseAuth.getInstance();
+        dataBase = FirebaseDatabase.getInstance();
+        table = dataBase.getReference("Users");
+
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,9 +174,11 @@ public class SignUpActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     Toast.makeText(SignUpActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                     progressBar.setVisibility(View.GONE);
-                                    // If sign in fails, display a message to the user. If sign in succeeds
-                                    // the auth state listener will be notified and logic to handle the
-                                    // signed in user can be handled in the listener.
+                                    /*
+                                     * If sign in fails, display a message to the user. If sign in succeeds
+                                     * the auth state listener will be notified and logic to handle the
+                                     * signed in user can be handled in the listener.
+                                     */
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(SignUpActivity.this, "Authentication failed." + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
@@ -175,15 +189,20 @@ public class SignUpActivity extends AppCompatActivity {
 
                                         BitmapDrawable drawable = (BitmapDrawable) profileImage.getDrawable();
                                         //create user
-                                        User user = new User(drawable.getBitmap(),
-                                                name.getText().toString(),
+                                        User user = new User(name.getText().toString(),
                                                 surname.getText().toString(),
                                                 country.getText().toString(),
                                                 date,
                                                 Long.parseLong(telephone.getText().toString()),
                                                 mail.getText().toString(),
-                                                id.getText().toString());
-                                        user.sendToDB();
+                                                id.getText().toString(),
+                                                password.getText().toString());
+//                                        Log.i("sendToDb", user.toString());
+//                                        Log.i("sendTODB", table.toString());
+//                                        table.child(user.getId()).setValue(user);
+//                                        Log.i("sendTODB", table.child(user.getId()).child("name").toString());
+                                        // TODO debug - what the fuck is wrong with setvalue()
+                                        sendToDB(user);
                                         Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
                                         startActivity(intent);
                                     }
@@ -197,11 +216,26 @@ public class SignUpActivity extends AppCompatActivity {
         passwordControl();
     }
 
+    /**
+     * Sends user data to Firebase DB
+     * @param user the user t be sent
+     */
+    public void sendToDB(User user) {
+        Log.i("sendToDb", user.toString());
+        Log.i("sendTODB", table.toString());
+        table.child(user.getId()).setValue(user);
+        Log.i("sendTODB", table.child(user.getId()).child("name").toString());
+
+    }
     protected void onResume() {
 
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
+
+    /**
+     * Sets visibility of the password
+     */
     private void passwordControl() {
         privacy1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,7 +269,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    //Dialog for date of birth
+
+    /**
+     *  Dialog for date of birth
+     */
     public void showDialogOnButtonPressed() {
         date_button = (Button) findViewById(R.id.date);
 
@@ -272,31 +309,43 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             };
 
-    //Integer to month convert
+    /**
+     * Integer to month convert
+     */
     private String convertToMonth(int id) {
         Context context = getApplicationContext();
         String[] months = context.getResources().getStringArray(R.array.months);
         return months[id].toUpperCase().substring(0, 3);
     }
 
-    //Min length for id from name
+    /**
+     * Min length for id from name
+     */
     private int getMinLengthForId(String str) {
         return str.length() < 5 ? str.length() : 5;
     }
 
-    //Number Condition
+    /**
+     * Sets the keyboard numerical
+     */
     private void setToNumbersOnly(){
         telephone.setInputType(InputType.TYPE_CLASS_NUMBER);
     }
 
-    //Caps on condition
+    /**
+     * Caps on condition
+     */
     private void setConditionForFirstCharToUpperCase() {
         name.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         surname.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         country.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
     }
 
-    //Checks
+    /**
+     * Checks if all the fields were completed
+     * correctly
+     * @return
+     */
     private boolean allFieldsAreCompletedCorrectly() {
         boolean to_return = true;
 
