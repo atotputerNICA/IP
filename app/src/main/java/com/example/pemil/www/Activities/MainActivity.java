@@ -258,9 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (signInMethod.equals(FACEBOOK)) {
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
-        }
-
-        if (signInMethod.equals(GOOGLE)) {
+        } else if (signInMethod.equals(GOOGLE)) {
             // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
             if (requestCode == RC_SIGN_IN) {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
