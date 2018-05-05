@@ -30,6 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * @author atotputerNICA
+ */
 public class GameActivity extends AppCompatActivity {
     DonutProgress donutProgress;
     int variable =0;
@@ -82,16 +85,16 @@ public class GameActivity extends AppCompatActivity {
         OptD = (Button) findViewById(R.id.OptionD);
         ques = (TextView) findViewById(R.id.Questions);
         play_button = (Button) findViewById(R.id.play_button);//Play button to start the game
-        for (i = 0; i < 10; i++)
+        for (i = 0; i < 11; i++)
             ques_number.add(i-1);
         //Collections.shuffle(ques_number);
     }
     public void onClick(View v) {
 
         // finished questions
-        if (j == 9) {
+        if (j == 10) {
             j = 0;
-            Intent intent = new Intent(GameActivity.this, CategoryActivity.class);
+            Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
             intent.putExtra("correct", l);
             intent.putExtra("attemp", k);
             startActivity(intent);
@@ -155,7 +158,7 @@ public class GameActivity extends AppCompatActivity {
                         editor.putInt("Currency", l * 10).apply();
                     donutProgress.setProgress(0);
                     if(variable==0) {
-                        Intent intent = new Intent(GameActivity.this, CategoryActivity.class);
+                        Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
                         intent.putExtra("correct", l);
                         intent.putExtra("attemp", k);
                         startActivity(intent);
