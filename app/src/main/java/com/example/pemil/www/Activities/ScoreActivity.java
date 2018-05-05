@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.example.pemil.www.R;
 
+/**
+ * @author atotputerNICA
+ */
 public class ScoreActivity extends AppCompatActivity {
     TextView correct, incorrect, attempted, score, you;
     int cor = 0, incorr = 0, attempt = 0, scor = 0, yo = 0;
