@@ -268,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                     // Google Sign In was successful, authenticate with Firebase
                     GoogleSignInAccount account = task.getResult(ApiException.class);
                     firebaseAuthWithGoogle(account);
+
                 } catch (ApiException e) {
                     // Google Sign In failed, update UI appropriately
                     Log.w(GOOGLE_TAG, "Google sign in failed", e);

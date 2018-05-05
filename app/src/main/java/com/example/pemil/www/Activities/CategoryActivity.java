@@ -64,7 +64,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     public void buttonClicked(Button b) {
         final String id = b.getText().toString();
-        Log.i("DSD", id);
+        Log.i("DSD", parseId(id));
         //To show button click
         new Handler().postDelayed(new Runnable() {@Override public void run(){}}, 400);
 
@@ -88,6 +88,33 @@ public class CategoryActivity extends AppCompatActivity {
 
         }, 2000);
 
+
+    }
+    public String parseId(String id) {
+        switch (id) {
+            case "Technology":
+                return "c1";
+            case "Sports":
+                return "c2";
+            case "Movies":
+                return "c3";
+            case "General Knowledge":
+                return "c4";
+            case "Science":
+                return "c5";
+            case "Arts":
+                return "c6";
+            case "Books":
+                return "c7";
+            case "Mathematics":
+                return "c8";
+            case "Geography":
+                return "c9";
+            case "Music":
+                return "c10";
+            default:
+                return "c0";
+        }
 
     }
 }

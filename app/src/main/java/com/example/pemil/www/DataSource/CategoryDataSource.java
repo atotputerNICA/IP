@@ -19,8 +19,8 @@ import java.util.HashMap;
  */
 
 public class CategoryDataSource {
-    private FirebaseDatabase dataBase ;
-    private DatabaseReference categoryDataBaseRef;
+    public FirebaseDatabase dataBase ;
+    public DatabaseReference categoryDataBaseRef;
     private static final int NUM_OF_QUESTIONS = 10;
     private static final int NUM_OF_CATEGORIES = 4;
     private static final String[] CATEGORIES = {
@@ -29,67 +29,66 @@ public class CategoryDataSource {
             "Entertainment: Film",
             "Entertainment: Music"
     };
-   //private static ArrayList<Category> categories;
-   // public boolean stop = false;
+   private static ArrayList<Category> categories;
+   public boolean stop = false;
 
     public CategoryDataSource() {
 
         FirebaseDatabase dataBase = FirebaseDatabase.getInstance();
         categoryDataBaseRef = dataBase.getReference("Category");
-        //categories = new ArrayList<>(NUM_OF_CATEGORIES);
+        categories = new ArrayList<>(NUM_OF_CATEGORIES);
         //selectCategories();
         //printCategories();
     }
 
-//    /**
-//     * select from database
-//     * @return list of Category Object
-//     */
-//    public void selectCategories() {
-//
-//        for (final String categoryString : CATEGORIES) {
-//
-//            categoryDataBaseRef.child(categoryString).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Category c = new Category();
-//                    c.setName(categoryString);
-//                    ArrayList<Question> questions = new ArrayList<>(NUM_OF_QUESTIONS);
-//                    if (dataSnapshot.exists() && !stop) {
-//                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
-//                            Question q = dataSnapshot.child(Integer.toString(i)).getValue(Question.class);
-//                            questions.add(q);
-//                        }
-//                        c.setQuestions(questions);
-//
-//                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
-//                            Log.i("FAAAAAAAAAAAAAAA",c.getQuestions().get(i).toString());
-//                        }
-//                        CategoryDataSource.categories.add(c);
-//                        Log.i("FAAAA", "" + CategoryDataSource.categories.size());
-//                    } else {
-//                        categoryDataBaseRef.child(categoryString).removeEventListener(this);
-//                    }
-//                    if (categoryString.equals(CATEGORIES[3])) {
-//
-//                        stop = true;
-//                        Log.i("faaaaaaaaa","hsuajs"+ stop);
-//                    }
-//                }
-//
-//
-//                @Override
-//                public void onCancelled(DatabaseError error) {
-//
-//                }
-//            });
-//
-//
-//        }
+    /**
+     * select from database
+     * @return list of Category Object
+     */
+    public void selectCategories() {
+
+        for (final String categoryString : CATEGORIES) {
+
+            categoryDataBaseRef.child(categoryString).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Category c = new Category();
+                    c.setName(categoryString);
+                    ArrayList<Question> questions = new ArrayList<>(NUM_OF_QUESTIONS);
+                    if (dataSnapshot.exists() && !stop) {
+                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
+                            Question q = dataSnapshot.child(Integer.toString(i)).getValue(Question.class);
+                            questions.add(q);
+                        }
+                        c.setQuestions(questions);
+
+                        for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
+                            Log.i("categ data source",c.getQuestions().get(i).toString());
+                        }
+                        CategoryDataSource.categories.add(c);
+                        Log.i("categ data source", "" + CategoryDataSource.categories.size());
+                    } else {
+                        categoryDataBaseRef.child(categoryString).removeEventListener(this);
+                    }
+                    if (categoryString.equals(CATEGORIES[3])) {
+
+                        stop = true;
+                    }
+                }
+
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+
+                }
+            });
+
+
+        }
 
 
 
-//    }
+    }
 
     public void printCategories(ArrayList<Category> categories) {
 
