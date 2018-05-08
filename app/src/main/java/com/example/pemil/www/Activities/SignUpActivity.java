@@ -25,12 +25,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.pemil.www.DataSource.UserDataSource;
 import com.example.pemil.www.Models.User;
 import com.example.pemil.www.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -71,8 +73,10 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private FirebaseAuth auth;
-    private FirebaseDatabase dataBase ;
+    private FirebaseDatabase dataBase;
     private DatabaseReference table;
+
+    private UserDataSource userDataSource;
 
     private PasswordState state1 = PasswordState.OFF;
     private PasswordState state2 = PasswordState.OFF;
@@ -111,9 +115,11 @@ public class SignUpActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         // get Firebase instance
-        auth =  FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         dataBase = FirebaseDatabase.getInstance();
         table = dataBase.getReference("Users");
+
+        userDataSource = new UserDataSource();
 
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +178,6 @@ public class SignUpActivity extends AppCompatActivity {
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Toast.makeText(SignUpActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                     progressBar.setVisibility(View.GONE);
                                     /*
                                      * If sign in fails, display a message to the user. If sign in succeeds
@@ -188,6 +193,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 Integer.toString(year);
 
                                         BitmapDrawable drawable = (BitmapDrawable) profileImage.getDrawable();
+                                        //TODO - send drawable to storage
                                         //create user
                                         User user = new User(name.getText().toString(),
                                                 surname.getText().toString(),
@@ -197,14 +203,14 @@ public class SignUpActivity extends AppCompatActivity {
                                                 mail.getText().toString(),
                                                 id.getText().toString(),
                                                 password.getText().toString());
-//                                        Log.i("sendToDb", user.toString());
-//                                        Log.i("sendTODB", table.toString());
-//                                        table.child(user.getId()).setValue(user);
-//                                        Log.i("sendTODB", table.child(user.getId()).child("name").toString());
-                                        // TODO debug - what the fuck is wrong with setvalue()
-                                        sendToDB(user);
-                                        Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
-                                        startActivity(intent);
+
+                                        FirebaseUser currentUser = auth.getCurrentUser();
+                                        if (currentUser != null) {
+                                            user.setId(currentUser.getUid());
+                                        }
+                                        userDataSource.sendToDB(user);
+                                        updateUI(currentUser);
+
                                     }
                                 }
                             });
@@ -216,17 +222,14 @@ public class SignUpActivity extends AppCompatActivity {
         passwordControl();
     }
 
-    /**
-     * Sends user data to Firebase DB
-     * @param user the user t be sent
-     */
-    public void sendToDB(User user) {
-        Log.i("sendToDb", user.toString());
-        Log.i("sendTODB", table.toString());
-        table.child(user.getId()).setValue(user);
-        Log.i("sendTODB", table.child(user.getId()).child("name").toString());
-
+    private void updateUI(FirebaseUser currentUser) {
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+            intent.putExtra("UID", currentUser.getUid());
+            startActivity(intent);
+        }
     }
+
     protected void onResume() {
 
         super.onResume();
@@ -271,7 +274,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     /**
-     *  Dialog for date of birth
+     * Dialog for date of birth
      */
     public void showDialogOnButtonPressed() {
         date_button = (Button) findViewById(R.id.date);
@@ -328,7 +331,7 @@ public class SignUpActivity extends AppCompatActivity {
     /**
      * Sets the keyboard numerical
      */
-    private void setToNumbersOnly(){
+    private void setToNumbersOnly() {
         telephone.setInputType(InputType.TYPE_CLASS_NUMBER);
     }
 
@@ -344,6 +347,7 @@ public class SignUpActivity extends AppCompatActivity {
     /**
      * Checks if all the fields were completed
      * correctly
+     *
      * @return
      */
     private boolean allFieldsAreCompletedCorrectly() {
@@ -413,7 +417,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         //Detects request codes
-        if(requestCode == 3 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == 3 && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
