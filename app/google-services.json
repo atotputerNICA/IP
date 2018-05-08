@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "420897923893-pihd07cvj0ivq9jpi57b71e74j2k83cr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pemil.www",
+            "certificate_hash": "a6f401355206747bea31bb8857a170a265726102"
+          }
+        },
+        {
           "client_id": "420897923893-2ppqqvh96r2id0uvtd0m9uckvfbrahgf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

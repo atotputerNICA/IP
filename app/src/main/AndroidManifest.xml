@@ -20,12 +20,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.UserProfileActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-
+        <activity android:name=".Activities.UserProfileActivity"/>
         <activity android:name=".Activities.CategoryActivity"/>
         <activity android:name=".Activities.GameActivity"/>
         <activity android:name=".Activities.ScoreActivity"/>
+        <activity android:name=".Activities.GameTypeActivity"/>
         <activity android:name=".Activities.SignUpActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
@@ -46,9 +45,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"
-        tools:ignore="ManifestOrder" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />

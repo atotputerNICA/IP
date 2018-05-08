@@ -1,8 +1,5 @@
 package com.example.pemil.www.Models;
 
-import android.graphics.Bitmap;
-import android.util.Log;
-
 /**
  * Created by pemil on 28.04.2018.
  *
@@ -31,6 +28,10 @@ public class User {
         this.email = email;
         this.id = id;
         this.password = password;
+    }
+
+    public User() {
+
     }
 
     public String getName() {
