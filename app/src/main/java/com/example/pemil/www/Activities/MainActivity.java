@@ -34,6 +34,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -41,15 +43,15 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
 
 /**
  * Login Activity
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private CallbackManager mCallbackManager;
     private String signInMethod;
+    private StorageReference mStorageRef;
 
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -84,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.input_user_password);
 
         mAuth = FirebaseAuth.getInstance();
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
 
         TextView signUp = findViewById(R.id.link_signup);
 
@@ -277,11 +282,12 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onCompleted(JSONObject object, GraphResponse response) {
                                             Log.v("Main", response.toString());
-                                            User user = getFacebookUser(object);
-                                            if (Fuser != null) {
-                                                user.setId(Fuser.getUid());
-                                            }
+                                            User user = null;
                                             UserDataSource userDataSource = new UserDataSource();
+
+                                            if (Fuser != null) {
+                                                user = getFacebookUser(Fuser.getUid(), object);
+                                            }
 
                                             userDataSource.sendToDB(user);
                                         }
@@ -349,12 +355,13 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(GOOGLE_TAG, "signInWithCredential:success");
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            User googleUser = getGoogleUser();
                             UserDataSource userDataSource = new UserDataSource();
+
+                            User googleUser = null;
+                            if (user != null) {
+                                googleUser = getGoogleUser(user.getUid());
+                            }
                             if (googleUser != null) {
-                                if (user != null) {
-                                    googleUser.setId(user.getUid());
-                                }
                                 Log.d("SENDING TO DATABASE", googleUser.toString());
                                 userDataSource.sendToDB(googleUser);
                             } else {
@@ -385,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public User getGoogleUser() {
+    public User getGoogleUser(String id) {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         User user = null;
         if (account != null) {
@@ -393,9 +400,12 @@ public class MainActivity extends AppCompatActivity {
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
             Uri personPhoto = account.getPhotoUrl();
-            //TODO - send personPhoto to storage
 
-            String personId = getGeneratedId(personGivenName, personFamilyName);
+
+            //TODO - send personPhoto to storage
+            if (personPhoto != null) {
+                addToStorage(id, "http://lh6.ggpht.com" + personPhoto.getPath() + "?width=500&height=500");
+            }
 
             user = new User(personGivenName,
                     personFamilyName,
@@ -403,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
                     null,
                     null,
                     personEmail,
-                    personId,
+                    id,
                     null);
         }
         if (user != null) {
@@ -412,10 +422,8 @@ public class MainActivity extends AppCompatActivity {
         return user;
     }
 
-    public User getFacebookUser(JSONObject object) {
+    public User getFacebookUser(String id, JSONObject object) {
         User user = null;
-
-//        String profileImgUrl = "https://graph.facebook.com/" + userID + "/picture?type=large";
         Log.d("FACEBOOK JSON", String.valueOf(object));
 
         String userId;
@@ -424,7 +432,11 @@ public class MainActivity extends AppCompatActivity {
         String email = null;
         try {
             userId = object.getString("id");
-            URL profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+//            URL profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+//            Uri uri = Uri.parse(profilePicture.toURI().toString());
+
+            addToStorage(id, "https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+
             if (object.has("first_name"))
                 firstName = object.getString("first_name");
             if (object.has("last_name"))
@@ -432,39 +444,46 @@ public class MainActivity extends AppCompatActivity {
             if (object.has("email"))
                 email = object.getString("email");
 
-            userId = getGeneratedId(firstName, lastName);
-
             user = new User(firstName,
                     lastName,
                     null,
                     null,
                     null,
                     email,
-                    userId,
+                    id,
                     null);
 
-        } catch (JSONException | MalformedURLException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return user;
     }
 
-    private String getGeneratedId(String name, String surname) {
-        String str = null;
-        int min = 0;
-        if (name != null) {
-            min = name.length() < 5 ? name.length() : 5;
-        }
+    private void addToStorage(String id, String photoUri) {
+        Log.d("STORAGE URI", photoUri);
+        Log.d("STORAGE ID", id);
 
-        if (surname != null && name != null &&
-                !name.equals("") && !surname.equals("")) {
-            str = name.substring(0, min) +
-                    surname.substring(0, 1) +
-                    Integer.toString(new Random().nextInt(999));
-        }
+        Uri uri = Uri.parse(photoUri);
 
-        return str;
+        StorageReference riversRef = mStorageRef.child("Users/" + id);
+
+        riversRef.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        Log.d("STORAGE REFERENCE", "onSucces:succes: " + downloadUrl);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                    }
+                });
     }
 
 }
