@@ -82,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
+        getSupportActionBar().hide();
+
+
         emailEditText = findViewById(R.id.email);
 
         passwordEditText = findViewById(R.id.input_user_password);
