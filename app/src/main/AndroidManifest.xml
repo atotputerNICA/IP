@@ -24,6 +24,7 @@
         <activity android:name=".Activities.CategoryActivity"/>
         <activity android:name=".Activities.GameActivity"/>
         <activity android:name=".Activities.ScoreActivity"/>
+        <activity android:name=".Activities.GameTypeActivity"/>
         <activity android:name=".Activities.SignUpActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"

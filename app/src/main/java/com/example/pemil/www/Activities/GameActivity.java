@@ -25,12 +25,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * @author atotputerNICA
  */
 public class GameActivity extends AppCompatActivity {
+    private final int NUMBER_OF_Q = 50;
+    private final int NUMBER_OF_Q_MATH = 40;
+    private final int NUMBER_OF_Q_ARTS = 20;
     DonutProgress donutProgress;
     int variable =0;
     TextView ques;
@@ -41,10 +46,10 @@ public class GameActivity extends AppCompatActivity {
     private CategoryDataSource dataSource;
     public int visibility = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0, c7 = 0, c8 = 0,
             c9 = 0, c10 = 0, i, j = 0, k = 0, l = 0;
-    String global = null, Ques, Opta, Optb, Optc, Optd;
-    ArrayList<Integer> ques_number = new ArrayList<Integer>();
-    Toast toast;
-    MediaPlayer mediaPlayer;
+    private String global = null, Ques, Opta, Optb, Optc, Optd;
+    private ArrayList<Integer> ques_number = new ArrayList<Integer>();
+    private Toast toast;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +68,7 @@ public class GameActivity extends AppCompatActivity {
         toast = new Toast(this);
 
         //attribute of the circular progress bar
+
         donutProgress = (DonutProgress) findViewById(R.id.donut_progress);
         donutProgress.setMax(100);
         donutProgress.setFinishedStrokeColor(Color.parseColor("#FFFB385F"));
@@ -71,6 +77,7 @@ public class GameActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
 
         //To play background sound
+
         if (sp.getInt("Sound", 0) == 0) {
             mediaPlayer = MediaPlayer.create(this, R.raw.alef);
             mediaPlayer.start();
@@ -82,11 +89,36 @@ public class GameActivity extends AppCompatActivity {
         OptC = (Button) findViewById(R.id.OptionC);
         OptD = (Button) findViewById(R.id.OptionD);
         ques = (TextView) findViewById(R.id.Questions);
+
         play_button = (Button) findViewById(R.id.play_button);//Play button to start the game
-        for (i = 0; i < 11; i++)
-            ques_number.add(i-1);
-        //Collections.shuffle(ques_number);
+
+        // Set questions indexes for the game depending on the type of the game
+
+        Random r = new Random();
+        int numberOfQ = get.equals("Mathematics") ? 40 : get.equals("Arts") ? 20 : 50;
+
+        if (intent.getStringExtra("GAME_TYPE").equals("Multi Player")) {
+
+            // MULTIPLAYER - received from the previous intent
+            String questions = intent.getStringExtra("Questions");
+            String[] ids = questions.split(",");
+            Log.i("GameActivity", Arrays.toString(ids));
+            ques_number.add(2);
+            for (i = 0; i < 10; i++) {
+                //Log.i("GameActivity", ids[i]);
+                ques_number.add(Integer.parseInt(ids[i]));
+            }
+        } else {
+
+            //SINGLEPLAYER - generate random
+            for (i = 0; i < 11  ; i++) {
+                ques_number.add(r.nextInt(numberOfQ));
+            }
+        }
     }
+
+
+
     public void onClick(View v) {
 
         // finished questions
@@ -211,7 +243,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-        dataSource.categoryDataBaseRef.child("General Knowledge").addListenerForSingleValueEvent(new ValueEventListener() {
+        dataSource.categoryDataBaseRef.child(get).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -222,7 +254,7 @@ public class GameActivity extends AppCompatActivity {
                     questions.add(q);
 
 
-                    Log.i("blalala", q.toString());
+                    Log.i("GameActivity", q.toString());
                     Ques = q.getQuestion();
                     ArrayList<String> ans = new ArrayList<>(4);
                     ans.addAll(q.getIncorrect_answers());
@@ -230,13 +262,17 @@ public class GameActivity extends AppCompatActivity {
 
                     Log.i("size",ans.size() + "");
                     Collections.shuffle(ans);
-                    // boolean type
+
+
                     if (q.getType().equals("boolean")) {
+                        // boolean type
+
                         Opta = ans.get(0);
                         Optb = ans.get(1);
                         OptC.setVisibility(View.INVISIBLE);
                         OptD.setVisibility(View.INVISIBLE);
                     } else {
+
                         // multiple choice type
                         OptC.setVisibility(View.VISIBLE);
                         OptD.setVisibility(View.VISIBLE);
@@ -254,8 +290,9 @@ public class GameActivity extends AppCompatActivity {
                     OptB.setText(Optb);
                     OptC.setText(Optc);
                     OptD.setText(Optd);
+
                 } else {
-                    dataSource.categoryDataBaseRef.child("General Knowledge").removeEventListener(this);
+                    dataSource.categoryDataBaseRef.child("get").removeEventListener(this);
                 }
             }
 

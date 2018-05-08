@@ -106,7 +106,7 @@ public class CategoryActivity extends AppCompatActivity {
             public void run() {
                 //Intent start to open the navigation drawer activity
                 progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                Intent intent = new Intent(CategoryActivity.this, GameActivity.class);
+                Intent intent = new Intent(CategoryActivity.this, GameTypeActivity.class);
                 intent.putExtra("CATEGORY", id);
                 startActivity(intent);
             }
