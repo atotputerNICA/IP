@@ -91,27 +91,27 @@ public class CategoryActivity extends AppCompatActivity {
         final String id = b.getText().toString();
         Log.i("DSD", parseId(id));
         //To show button click
-        new Handler().postDelayed(new Runnable() {@Override public void run(){}}, 400);
-
-        progressBar = new ProgressDialog(b.getContext());//Create new object of progress bar type
-        progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
-        progressBar.setMessage("Getting Questions Ready ...");//Title shown in the progress bar
-        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-        progressBar.setProgress(0);//attributes
-        progressBar.setMax(100);//attributes
-        progressBar.show();//show the progress bar
-        //This handler will add a delay of 3 seconds
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Intent start to open the navigation drawer activity
-                progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                Intent intent = new Intent(CategoryActivity.this, GameTypeActivity.class);
-                intent.putExtra("CATEGORY", id);
-                startActivity(intent);
-            }
-
-        }, 2000);
+//        new Handler().postDelayed(new Runnable() {@Override public void run(){}}, 400);
+//
+//        progressBar = new ProgressDialog(b.getContext());//Create new object of progress bar type
+//        progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
+//        progressBar.setMessage("Getting Questions Ready ...");//Title shown in the progress bar
+//        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
+//        progressBar.setProgress(0);//attributes
+//        progressBar.setMax(100);//attributes
+//        progressBar.show();//show the progress bar
+//        //This handler will add a delay of 3 seconds
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                //Intent start to open the navigation drawer activity
+//                progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
+        Intent intent = new Intent(CategoryActivity.this, GameTypeActivity.class);
+        intent.putExtra("CATEGORY", id);
+        startActivity(intent);
+//            }
+//
+//        }, 2000);
 
 
     }

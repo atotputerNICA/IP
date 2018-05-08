@@ -48,6 +48,7 @@ public class GameTypeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = mAuth.getCurrentUser();
     private String UID = user.getUid();
+    private String get;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,8 @@ public class GameTypeActivity extends AppCompatActivity {
         intent = getIntent(); //recieving the intent send by the Category activity
 
         //converting that intent message to string using the getStringExtra() method
-        String get = intent.getStringExtra("CATEGORY");
-
+        get = intent.getStringExtra("CATEGORY");
+        mMatchmaker = mMatchmaker.child(get);
         int numberOfQ = get.equals("Mathematics") ? 40 : get.equals("Arts") ? 20 : 50; // total number of Q in the Data base
 
         // Generate 10 Q indexes (only the first player will update in the game table
@@ -145,8 +146,8 @@ public class GameTypeActivity extends AppCompatActivity {
      * If it fails to post the game, it destroys the game.
      */
     private void findMatchFirstArriver() {
-        String matchmaker;
-        final DatabaseReference dbReference = mGamesReference.push();
+        final String matchmaker;
+        final DatabaseReference dbReference = mGamesReference.child(get).push();
         dbReference.child("player1").setValue(UID);
         matchmaker = dbReference.getKey();
         final String newMatchmaker = matchmaker;
@@ -174,8 +175,8 @@ public class GameTypeActivity extends AppCompatActivity {
                     // we failed to post the game, so destroy the game so we don't leave trash.
                     dbReference.removeValue();
                 } else {
-                    DatabaseReference gameReference = mGamesReference.child(newMatchmaker);
-                    gameReference.child("questions").setValue(quesId);
+                    DatabaseReference gameReference = mGamesReference.child(get);
+                    gameReference.child(matchmaker).child("questions").setValue(quesId);
 
                     progressBar.show();//show the progress bar
                     //This handler will add a delay of 3 seconds
@@ -222,7 +223,7 @@ public class GameTypeActivity extends AppCompatActivity {
             public void onComplete(DatabaseError databaseError, boolean committed,
                                    DataSnapshot dataSnapshot) {
                 if (committed) {
-                    DatabaseReference gameReference = mGamesReference.child(matchmaker);
+                    DatabaseReference gameReference = mGamesReference.child(get).child(matchmaker);
                     gameReference.child("player2").setValue(UID);
                     mMatchmaker.setValue(NONE);
                     gameReference.child("questions").addListenerForSingleValueEvent(new ValueEventListener() {
