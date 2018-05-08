@@ -53,7 +53,8 @@ public class GameTypeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_type);
-
+        getSupportActionBar().hide();
+        
         intent = getIntent(); //recieving the intent send by the Category activity
 
         //converting that intent message to string using the getStringExtra() method

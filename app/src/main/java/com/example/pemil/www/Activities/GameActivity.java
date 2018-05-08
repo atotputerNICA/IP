@@ -207,7 +207,6 @@ public class GameActivity extends AppCompatActivity {
                      * an user cannot idetify which questions answer is it showing
                      */
                     Snackbar.make(v, "         Correct ☺", Snackbar.LENGTH_SHORT).show();
-
                     l++;
                 } else {
                     Snackbar.make(v, "Incorrect\t      Answer :" + Opta + "", Snackbar.LENGTH_SHORT).show();
@@ -223,7 +222,6 @@ public class GameActivity extends AppCompatActivity {
 
             } else if (global.equals("C")) {
                 if (v.getId() == R.id.OptionC) {
-
                     Snackbar.make(v, "         Correct ☺", Snackbar.LENGTH_SHORT).show();
                     l++;
                 } else {
@@ -234,7 +232,6 @@ public class GameActivity extends AppCompatActivity {
                     Snackbar.make(v, "        Correct ☺", Snackbar.LENGTH_SHORT).show();
                     l++;
                 } else {
-
                     Snackbar.make(v, "Incorrect\tAnswer :" + Optd + "", Snackbar.LENGTH_SHORT).show();
                 }
             }

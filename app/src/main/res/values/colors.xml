@@ -10,4 +10,6 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="colorButtonNormal">#009688</color>
+    <color name="good">#3AF009</color>
+    <color name="bad">#F0090C</color>
 </resources>
