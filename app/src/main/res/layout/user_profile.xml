@@ -14,17 +14,27 @@
         android:baselineAligned="false">
 
         <LinearLayout
+            android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="right">
+            android:gravity="right"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="Signout"
+                android:textColor="@color/background"
+                android:textSize="20dp" />
 
             <ImageView
-                android:id="@+id/settings"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/settings" />
+                android:src="@drawable/lock" />
 
         </LinearLayout>
 
@@ -53,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="MyName"
+            android:text=""
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -63,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Country"
+            android:text=""
             android:textStyle="italic"
             android:textColor="#FF707070" />
 
@@ -98,7 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
-                    android:text="MyId"
+                    android:text=""
                     android:textSize="15dp"
                     android:layout_marginLeft="10dp"/>
 
@@ -117,12 +127,12 @@
                     android:src="@drawable/mail"/>
 
                 <EditText
-                    android:id="@+id/text2"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:inputType="none"
-                    android:text="MyEmail"
+                    android:text=""
                     android:textSize="15dp" />
 
             </LinearLayout>
