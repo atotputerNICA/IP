@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -296,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     });
                             Bundle parameters = new Bundle();
-                            parameters.putString("fields", "id,first_name,last_name,email,birthday");
+                            parameters.putString("fields", "id,first_name,last_name,email,location");
                             request.setParameters(parameters);
                             request.executeAsync();
                             updateUI(Fuser);
@@ -404,9 +405,9 @@ public class MainActivity extends AppCompatActivity {
 
 
             //TODO - send personPhoto to storage
-            if (personPhoto != null) {
-                addToStorage(id, "http://lh6.ggpht.com" + personPhoto.getPath() + "?width=500&height=500");
-            }
+//            if (personPhoto != null) {
+//                addToStorage(id, "http://lh6.ggpht.com" + personPhoto.getPath() + "?width=500&height=500");
+//            }
 
             user = new User(personGivenName,
                     personFamilyName,
@@ -431,12 +432,14 @@ public class MainActivity extends AppCompatActivity {
         String firstName = null;
         String lastName = null;
         String email = null;
+//        Page location = null;
         try {
             userId = object.getString("id");
 //            URL profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
 //            Uri uri = Uri.parse(profilePicture.toURI().toString());
 
-            addToStorage(id, "https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+//            addToStorage(id, "https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+
 
             if (object.has("first_name"))
                 firstName = object.getString("first_name");
@@ -444,6 +447,10 @@ public class MainActivity extends AppCompatActivity {
                 lastName = object.getString("last_name");
             if (object.has("email"))
                 email = object.getString("email");
+//            if(object.has("location")) {
+//                location = object.get("location");
+//            }
+
 
             user = new User(firstName,
                     lastName,
