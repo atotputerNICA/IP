@@ -21,6 +21,8 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        getSupportActionBar().hide();
+
         Intent intent = getIntent();
         cor = intent.getIntExtra("correct", 0);
         attempt = intent.getIntExtra("attemp", 0);
