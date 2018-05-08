@@ -17,12 +17,9 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.pemil.www.DataSource.CategoryDataSource;
-import com.example.pemil.www.Models.Category;
 import com.example.pemil.www.Models.Question;
-import com.github.lzyzsd.circleprogress.DonutProgress;
-
-
 import com.example.pemil.www.R;
+import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -51,6 +48,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

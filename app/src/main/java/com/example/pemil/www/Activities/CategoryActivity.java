@@ -2,14 +2,19 @@ package com.example.pemil.www.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
-import com.example.pemil.www.Models.Category;
 import com.example.pemil.www.R;
 
 /**
@@ -26,6 +31,7 @@ public class CategoryActivity extends AppCompatActivity {
     Button sportsC;
     Button scienceC;
     Button geoC;
+    Button profile;
     private ProgressDialog progressBar;
     private Button.OnClickListener awesomeOnClickListener = new Button.OnClickListener() {
         @Override
@@ -33,6 +39,16 @@ public class CategoryActivity extends AppCompatActivity {
             buttonClicked((Button) b);
         }
     };
+
+    private ImageView menu;
+    String[] menuitems;
+    TypedArray menuIcons;
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
+    private static DrawerLayout mDrawerLayout;
+    private static ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +64,7 @@ public class CategoryActivity extends AppCompatActivity {
         sportsC = (Button) findViewById(R.id.sports);
         scienceC = (Button) findViewById(R.id.science);
         geoC = (Button) findViewById(R.id.geo);
+        profile = (Button) findViewById(R.id.to_profile);
         musicC.setOnClickListener(awesomeOnClickListener);
         artC.setOnClickListener(awesomeOnClickListener);
         booksC.setOnClickListener(awesomeOnClickListener);
@@ -59,7 +76,15 @@ public class CategoryActivity extends AppCompatActivity {
         scienceC.setOnClickListener(awesomeOnClickListener);
         geoC.setOnClickListener(awesomeOnClickListener);
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        getSupportActionBar().hide();
     }
 
     public void buttonClicked(Button b) {
@@ -116,5 +141,9 @@ public class CategoryActivity extends AppCompatActivity {
                 return "c0";
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
