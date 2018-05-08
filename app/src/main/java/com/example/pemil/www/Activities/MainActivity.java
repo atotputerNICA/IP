@@ -410,12 +410,12 @@ public class MainActivity extends AppCompatActivity {
 
             user = new User(personGivenName,
                     personFamilyName,
-                    null,
-                    null,
-                    null,
+                    "",
+                    "",
+                    0L,
                     personEmail,
                     id,
-                    null);
+                    "");
         }
         if (user != null) {
             Log.d("GOOGLE PERSON", user.toString());
@@ -447,12 +447,12 @@ public class MainActivity extends AppCompatActivity {
 
             user = new User(firstName,
                     lastName,
-                    null,
-                    null,
-                    null,
+                    "",
+                    "",
+                    0L,
                     email,
                     id,
-                    null);
+                    "");
 
         } catch (JSONException e) {
             e.printStackTrace();
