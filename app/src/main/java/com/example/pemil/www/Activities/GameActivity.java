@@ -36,12 +36,12 @@ public class GameActivity extends AppCompatActivity {
     private final int NUMBER_OF_Q = 50;
     private final int NUMBER_OF_Q_MATH = 40;
     private final int NUMBER_OF_Q_ARTS = 20;
-    DonutProgress donutProgress;
+    private DonutProgress donutProgress;
     int variable =0;
-    TextView ques;
-    Button OptA, OptB, OptC, OptD;
-    Button play_button;
-    String get;
+    private TextView ques;
+    private Button OptA, OptB, OptC, OptD;
+    private Button play_button;
+    private String get;
     //Objects of different classes
     private CategoryDataSource dataSource;
     public int visibility = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0, c7 = 0, c8 = 0,
@@ -50,6 +50,10 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Integer> ques_number = new ArrayList<Integer>();
     private Toast toast;
     private MediaPlayer mediaPlayer;
+    private String gameType;
+    private String category;
+    private String matchmaker;
+    private String player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,11 @@ public class GameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();//recieving the intent send by the Navigation activity
         get = intent.getStringExtra("CATEGORY");//converting that intent message to string using the getStringExtra() method
+        gameType = intent.getStringExtra("GAME_TYPE");
+        category = intent.getStringExtra("CATEGORY");
+        matchmaker = intent.getStringExtra("MATCHMAKER");
+        player = intent.getStringExtra("PLAYER");
+
         toast = new Toast(this);
 
         //attribute of the circular progress bar
@@ -127,6 +136,11 @@ public class GameActivity extends AppCompatActivity {
             Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
             intent.putExtra("correct", l);
             intent.putExtra("attemp", k);
+            intent.putExtra("GAME_TYPE", gameType);
+            intent.putExtra("CATEGORY", category);
+            intent.putExtra("MATCHMAKER", matchmaker);
+            intent.putExtra("PLAYER", player);
+
             startActivity(intent);
             finish();
         }
@@ -191,6 +205,10 @@ public class GameActivity extends AppCompatActivity {
                         Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
                         intent.putExtra("correct", l);
                         intent.putExtra("attemp", k);
+                        intent.putExtra("GAME_TYPE", gameType);
+                        intent.putExtra("CATEGORY", category);
+                        intent.putExtra("MATCHMAKER", matchmaker);
+                        intent.putExtra("PLAYER", player);
                         startActivity(intent);
                         finish();
                     }

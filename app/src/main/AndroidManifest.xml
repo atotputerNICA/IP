@@ -4,6 +4,8 @@
     package="com.example.pemil.www">
 
     <application
+        android:largeHeap="true"
+
         android:allowBackup="true"
         android:icon="@drawable/www_icon"
         android:label="@string/app_name"

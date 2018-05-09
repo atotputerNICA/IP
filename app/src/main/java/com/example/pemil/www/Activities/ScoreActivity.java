@@ -3,10 +3,13 @@ package com.example.pemil.www.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pemil.www.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * @author atotputerNICA
@@ -22,6 +25,12 @@ public class ScoreActivity extends AppCompatActivity {
     TextView player2_name;
     TextView result;
 
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference mGamesReference = database.getReference("games");
+    private DatabaseReference userTable = database.getReference("Users");
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +39,20 @@ public class ScoreActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Intent intent = getIntent();
+        String gameType = intent.getStringExtra("GAME_TYPE");
         cor = intent.getIntExtra("correct", 0);
         attempt = intent.getIntExtra("attemp", 0);
+        String category = intent.getStringExtra("CATEGORY");
+        String matchmaker = intent.getStringExtra("MATCHMAKER");
+        String player = intent.getStringExtra("PLAYER");
+
+        mGamesReference = mGamesReference.child(category).child(matchmaker);
+
+
         incorr = attempt - cor;
         scor = 10 * cor;
+        mGamesReference.child(player+"score").setValue(scor);
+
         correct = (TextView) findViewById(R.id.correct);
         incorrect = (TextView) findViewById(R.id.incorrect);
         attempted = (TextView) findViewById(R.id.attempted);
@@ -44,6 +63,7 @@ public class ScoreActivity extends AppCompatActivity {
         correct.setText("  " + cor);
         incorrect.setText("  " + incorr);
         score.setText("Score  :    " + scor);
+
         float x1 = (cor * 100) / attempt;
         if (x1 < 40)
             you.setText("You Need Improvement");
@@ -54,7 +74,7 @@ public class ScoreActivity extends AppCompatActivity {
         else
             you.setText("You are a brilliant  Quizzer ");
 
-        //TODO
+
         player1 = (ImageView)findViewById(R.id.player1);
         player2 = (ImageView)findViewById(R.id.player2);
         player1_name = (TextView)findViewById(R.id.player1_name);
@@ -63,13 +83,22 @@ public class ScoreActivity extends AppCompatActivity {
 
         int result1 = 0;
         int result2 = 0;
-        if (result1 > result2) {
-            result.setText("Wew, you won! Congrats!");
-        } else {
-            if (result1 == result2) {
-                result.setText("It's a draw! No one wins! go home!");
+
+        if (gameType.equals("Multi player")) {
+            player1.setVisibility(View.VISIBLE);
+            player2.setVisibility(View.VISIBLE);
+            player1_name.setVisibility(View.VISIBLE);
+            player2_name.setVisibility(View.VISIBLE);
+
+
+            if (result1 > result2) {
+                result.setText("Wew, you won! Congrats!");
             } else {
-                result.setText("One of us is a looser and that one is not me!");
+                if (result1 == result2) {
+                    result.setText("It's a draw! No one wins! go home!");
+                } else {
+                    result.setText("One of us is a looser and that one is not me!");
+                }
             }
         }
     }

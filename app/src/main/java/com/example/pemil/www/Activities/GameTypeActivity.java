@@ -188,7 +188,9 @@ public class GameTypeActivity extends AppCompatActivity {
                             Intent newIntent = new Intent(GameTypeActivity.this, GameActivity.class);
                             newIntent.putExtra("CATEGORY", intent.getStringExtra("CATEGORY"));
                             newIntent.putExtra("GAME_TYPE", type);
+                            newIntent.putExtra("MATCMAKER", newMatchmaker);
                             newIntent.putExtra("Questions", TextUtils.join(",", quesId));
+                            newIntent.putExtra("PLAYER", "player1");
                             startActivity(newIntent);
                             finish();
                         }
@@ -233,6 +235,8 @@ public class GameTypeActivity extends AppCompatActivity {
                             Intent newIntent = new Intent(GameTypeActivity.this, GameActivity.class);
                             newIntent.putExtra("CATEGORY", intent.getStringExtra("CATEGORY"));
                             newIntent.putExtra("GAME_TYPE", type);
+                            newIntent.putExtra("MATCMAKER", matchmaker);
+                            newIntent.putExtra("PLAYER", "player2");
                             GenericTypeIndicator<List<Long>> t = new GenericTypeIndicator<List<Long>>() {};
                             List<Long> ques = dataSnapshot.getValue(t);
                             newIntent.putExtra("Questions", TextUtils.join(",", ques));
