@@ -927,7 +927,7 @@
         "category":"Sports",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"Which soccer team won the Copa Am&eacute;rica 2015 Championship ?",
+        "question":"Which soccer team won the Copa Amrica 2015 Championship ?",
         "correct_answer":"Chile",
         "incorrect_answers":[
           "Argentina",
@@ -939,7 +939,7 @@
         "category":"Sports",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"Which soccer team won the Copa Am&eacute;rica Centenario 2016?",
+        "question":"Which soccer team won the Copa Amrica Centenario 2016?",
         "correct_answer":"Chile",
         "incorrect_answers":[
           "Argentina",
@@ -1179,7 +1179,7 @@
         "correct_answer":"\"Frankly, my dear, I don't give a damn.\"",
         "incorrect_answers":[
           "\"Here's lookin' at you, kid.\"",
-          "&ldquo;Of all the gin joints, in all the towns, in all the world, she walks into mine&hellip;&rdquo;",
+          "Of all the gin joints, in all the towns, in all the world, she walks into mine",
           "\"Round up the usual suspects.\""
         ]
       },
@@ -1280,7 +1280,7 @@
         "type":"multiple",
         "difficulty":"easy",
         "question":"Who directed the 2015 movie \"The Revenant\"?",
-        "correct_answer":"Alejandro G. I&ntilde;&aacute;rritu",
+        "correct_answer":"Alejandro G. Inarritu",
         "incorrect_answers":[
           "Christopher Nolan",
           "David Fincher",
@@ -1409,7 +1409,7 @@
         "category":"Entertainment: Film",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"In the 1971 film \"Willy Wonka &amp; the Chocolate Factory\", who played Willy Wonka?",
+        "question":"In the 1971 film \"Willy Wonka and the Chocolate Factory\", who played Willy Wonka?",
         "correct_answer":"Gene Wilder",
         "incorrect_answers":[
           "Shia LeBouf",
@@ -2187,7 +2187,7 @@
         "category":"General Knowledge",
         "type":"boolean",
         "difficulty":"hard",
-        "question":"In Scandinavian languages, the letter &Aring; means river.",
+        "question":"In Scandinavian languages, the letter aring means river.",
         "correct_answer":"True",
         "incorrect_answers":[
           "False"
@@ -2473,7 +2473,7 @@
         "category":"Science & Nature",
         "type":"multiple",
         "difficulty":"easy",
-        "question":"Which gas forms about 78% of the Earth&rsquo;s atmosphere?",
+        "question":"Which gas forms about 78% of the Earth\'s atmosphere?",
         "correct_answer":"Nitrogen",
         "incorrect_answers":[
           "Oxygen",
@@ -2770,10 +2770,10 @@
         "type":"multiple",
         "difficulty":"hard",
         "question":"The core of the Sun can reach which temperature?",
-        "correct_answer":"27&deg; Million F (15&deg; Million C)",
+        "correct_answer":"27deg Million F (15deg Million C)",
         "incorrect_answers":[
-          "938,000&deg; F (521093.3&deg; C)",
-          "8&deg; Billion F (&deg;4.4 Billion C)",
+          "938deg F (521093.3deg C)",
+          "8deg Billion F (4.4deg Billion C)",
           "Absolute Zero (Both F and C)"
         ]
       },
@@ -2806,11 +2806,11 @@
         "type":"multiple",
         "difficulty":"medium",
         "question":"At what temperature does water boil?",
-        "correct_answer":"212&deg;F",
+        "correct_answer":"212deg F",
         "incorrect_answers":[
-          "200&deg;F",
-          "181&deg;F",
-          "178&deg;F"
+          "200deg F",
+          "181deg F",
+          "178deg F"
         ]
       },
       {
@@ -2935,7 +2935,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"Which time signature is commonly known as &ldquo;Cut Time?&rdquo;",
+        "question":"Which time signature is commonly known as \"Cut Time\"",
         "correct_answer":"2\/2",
         "incorrect_answers":[
           "4\/4",
@@ -2960,9 +2960,9 @@
         "type":"multiple",
         "difficulty":"hard",
         "question":"What French sculptor designed the Statue of Liberty? ",
-        "correct_answer":"Fr&eacute;d&eacute;ric Auguste Bartholdi",
+        "correct_answer":"Frederic Auguste Bartholdi",
         "incorrect_answers":[
-          "Jean-L&eacute;on G&eacute;r&ocirc;me",
+          "Jean Paul",
           "Auguste Rodin",
           "Henri Matisse"
         ]
@@ -2981,7 +2981,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"Which artist&rsquo;s studio was known as 'The Factory'?",
+        "question":"Which artist\'s studio was known as 'The Factory'?",
         "correct_answer":"Andy Warhol",
         "incorrect_answers":[
           "Roy Lichtenstein",
@@ -3005,8 +3005,8 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"Albrecht D&uuml;rer's birthplace and place of death were in...",
-        "correct_answer":"N&uuml;rnberg",
+        "question":"Albrecht Durer\'s birthplace and place of death were in...",
+        "correct_answer":"Nuremberg",
         "incorrect_answers":[
           "Augsburg",
           "Bamberg",
@@ -3027,7 +3027,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"What year did Albrecht D&uuml;rer create the painting \"The Young Hare\"?",
+        "question":"What year did Albrecht Durer\'s create the painting \"The Young Hare\"?",
         "correct_answer":"1502",
         "incorrect_answers":[
           "1702",
@@ -3100,7 +3100,7 @@
         "question":"Which artist's style was to use small different colored dots to create a picture?",
         "correct_answer":"Georges Seurat",
         "incorrect_answers":[
-          "Paul C&eacute;zanne",
+          "Paul Cezanne",
           "Vincent Van Gogh",
           "Henri Rousseau"
         ]
@@ -3281,7 +3281,7 @@
         "correct_answer":"The Artful Dodger",
         "incorrect_answers":[
           "Fagin",
-          "Bull&rsquo;s-eye",
+          "Bull\'s-eye",
           "Mr. Fang"
         ]
       },
@@ -3432,9 +3432,9 @@
         "type":"multiple",
         "difficulty":"hard",
         "question":"The novel \"Jane Eyre\" was written by what author? ",
-        "correct_answer":"Charlotte Bront&euml;",
+        "correct_answer":"Charlotte Bronte",
         "incorrect_answers":[
-          "Emily Bront&euml;",
+          "Emily Bronte",
           "Jane Austen",
           "Louisa May Alcott"
         ]
@@ -3496,7 +3496,7 @@
         "incorrect_answers":[
           "The Dunstane Hotel",
           "Hotel Novotel",
-          "Sheraton Grand Hotel &amp; Spa"
+          "Sheraton Grand Hotel and Spa"
         ]
       },
       {
@@ -3574,7 +3574,7 @@
         "type":"multiple",
         "difficulty":"medium",
         "question":"The book \"The Little Prince\" was written by...",
-        "correct_answer":"Antoine de Saint-Exup&eacute;ry",
+        "correct_answer":"Antoine de Saint-Exupery",
         "incorrect_answers":[
           "Miguel de Cervantes Saavedra",
           "Jane Austen",
@@ -3827,7 +3827,7 @@
         "category":"Science: Mathematics",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"What is the area of a circle with a diameter of 20 inches if &pi;= 3.1415?",
+        "question":"What is the area of a circle with a diameter of 20 inches if pi = 3.1415?",
         "correct_answer":"314.15 Inches",
         "incorrect_answers":[
           "380.1215 Inches",
@@ -4064,7 +4064,7 @@
         "type":"multiple",
         "difficulty":"easy",
         "question":"What is the symbol for Displacement?",
-        "correct_answer":"&Delta;r",
+        "correct_answer":"delta",
         "incorrect_answers":[
           "dr",
           "Dp",
@@ -4131,7 +4131,7 @@
         "category":"Science: Mathematics",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"The French mathematician &Eacute;variste Galois is primarily known for his work in which?",
+        "question":"The French mathematician Evariste Galois is primarily known for his work in which?",
         "correct_answer":"Galois Theory",
         "incorrect_answers":[
           "Galois' Continued Fractions",
@@ -4153,7 +4153,7 @@
         "category":"Science: Mathematics",
         "type":"boolean",
         "difficulty":"hard",
-        "question":"L'H&ocirc;pital was the mathematician who created the homonymous rule that uses derivatives to evaluate limits with indeterminations.",
+        "question":"L\'Hopital was the mathematician who created the homonymous rule that uses derivatives to evaluate limits with indeterminations.",
         "correct_answer":"False",
         "incorrect_answers":[
           "True"
@@ -4362,8 +4362,8 @@
         "question":"What is the capital of Chile?",
         "correct_answer":"Santiago",
         "incorrect_answers":[
-          "Valpara&iacute;so",
-          "Copiap&oacute;",
+          "Valparaiso",
+          "Copiapo",
           "Antofagasta"
         ]
       },
@@ -4400,7 +4400,7 @@
         "incorrect_answers":[
           "Asturias",
           "Navarre",
-          "Le&oacute;n"
+          "Leon"
         ]
       },
       {
@@ -4455,7 +4455,7 @@
         "category":"Geography",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"Where is the Luxor Hotel &amp; Casino located?",
+        "question":"Where is the Luxor Hotel and Casino located?",
         "correct_answer":"Paradise, Nevada",
         "incorrect_answers":[
           "Las Vegas, Nevada",
@@ -4525,7 +4525,7 @@
         "category":"Geography",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"Llanfair&shy;pwllgwyngyll&shy;gogery&shy;chwyrn&shy;drobwll&shy;llan&shy;tysilio&shy;gogo&shy;goch is located on which Welsh island?",
+        "question":"Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch is located on which Welsh island?",
         "correct_answer":"Anglesey",
         "incorrect_answers":[
           "Barry",
@@ -4981,7 +4981,7 @@
         "category":"Entertainment: Music",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"How many members are there in the idol group \"&micro;'s\"?",
+        "question":"How many members are there in the idol group \"m\'s\"?",
         "correct_answer":"9",
         "incorrect_answers":[
           "48",
@@ -5008,7 +5008,7 @@
         "question":"Which of these artists did NOT remix the song \"Faded\" by Alan Walker?",
         "correct_answer":"Skrillex",
         "incorrect_answers":[
-          "Ti&euml;sto",
+          "Tiesto",
           "Slushii",
           "Dash Berlin"
         ]
@@ -5126,7 +5126,7 @@
         "type":"multiple",
         "difficulty":"medium",
         "question":"What is the relationship between the band members of American rock band King of Leon?",
-        "correct_answer":"Brothers &amp; cousins",
+        "correct_answer":"Brothers and cousins",
         "incorrect_answers":[
           "Childhood friends",
           "Former classmates",
@@ -5348,7 +5348,7 @@
         "question":"Electronic artists Boys Noize and Skrillex have collaborated and released tracks under what name?",
         "correct_answer":"Dog Blood",
         "incorrect_answers":[
-          "Jack &Uuml;",
+          "Jack U",
           "What So Not",
           "Noisia"
         ]
