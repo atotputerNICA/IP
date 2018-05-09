@@ -2473,7 +2473,7 @@
         "category":"Science & Nature",
         "type":"multiple",
         "difficulty":"easy",
-        "question":"Which gas forms about 78% of the Earth\'s atmosphere?",
+        "question":"Which gas forms about 78% of the Earth's atmosphere?",
         "correct_answer":"Nitrogen",
         "incorrect_answers":[
           "Oxygen",
@@ -2981,7 +2981,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"medium",
-        "question":"Which artist\'s studio was known as 'The Factory'?",
+        "question":"Which artist s studio was known as 'The Factory'?",
         "correct_answer":"Andy Warhol",
         "incorrect_answers":[
           "Roy Lichtenstein",
@@ -3005,7 +3005,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"Albrecht Durer\'s birthplace and place of death were in...",
+        "question":"Albrecht Durer's birthplace and place of death were in...",
         "correct_answer":"Nuremberg",
         "incorrect_answers":[
           "Augsburg",
@@ -3027,7 +3027,7 @@
         "category":"Art",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"What year did Albrecht Durer\'s create the painting \"The Young Hare\"?",
+        "question":"What year did Albrecht Durers create the painting \"The Young Hare\"?",
         "correct_answer":"1502",
         "incorrect_answers":[
           "1702",
@@ -3281,7 +3281,7 @@
         "correct_answer":"The Artful Dodger",
         "incorrect_answers":[
           "Fagin",
-          "Bull\'s-eye",
+          "Bulls-eye",
           "Mr. Fang"
         ]
       },
@@ -4153,7 +4153,7 @@
         "category":"Science: Mathematics",
         "type":"boolean",
         "difficulty":"hard",
-        "question":"L\'Hopital was the mathematician who created the homonymous rule that uses derivatives to evaluate limits with indeterminations.",
+        "question":"LHopital was the mathematician who created the homonymous rule that uses derivatives to evaluate limits with indeterminations.",
         "correct_answer":"False",
         "incorrect_answers":[
           "True"
@@ -4981,7 +4981,7 @@
         "category":"Entertainment: Music",
         "type":"multiple",
         "difficulty":"hard",
-        "question":"How many members are there in the idol group \"m\'s\"?",
+        "question":"How many members are there in the idol group m's?",
         "correct_answer":"9",
         "incorrect_answers":[
           "48",
