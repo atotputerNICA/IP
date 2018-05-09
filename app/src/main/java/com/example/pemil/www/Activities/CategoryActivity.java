@@ -1,19 +1,11 @@
 package com.example.pemil.www.Activities;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.example.pemil.www.R;
 
@@ -32,23 +24,13 @@ public class CategoryActivity extends AppCompatActivity {
     Button scienceC;
     Button geoC;
     Button profile;
-    private ProgressDialog progressBar;
+
     private Button.OnClickListener awesomeOnClickListener = new Button.OnClickListener() {
         @Override
         public void onClick(View b) {
             buttonClicked((Button) b);
         }
     };
-
-    private ImageView menu;
-    String[] menuitems;
-    TypedArray menuIcons;
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
-    private static DrawerLayout mDrawerLayout;
-    private static ListView mDrawerList;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,57 +71,10 @@ public class CategoryActivity extends AppCompatActivity {
 
     public void buttonClicked(Button b) {
         final String id = b.getText().toString();
-        Log.i("DSD", parseId(id));
-        //To show button click
-//        new Handler().postDelayed(new Runnable() {@Override public void run(){}}, 400);
-//
-//        progressBar = new ProgressDialog(b.getContext());//Create new object of progress bar type
-//        progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
-//        progressBar.setMessage("Getting Questions Ready ...");//Title shown in the progress bar
-//        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-//        progressBar.setProgress(0);//attributes
-//        progressBar.setMax(100);//attributes
-//        progressBar.show();//show the progress bar
-//        //This handler will add a delay of 3 seconds
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                //Intent start to open the navigation drawer activity
-//                progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
+
         Intent intent = new Intent(CategoryActivity.this, GameTypeActivity.class);
         intent.putExtra("CATEGORY", id);
         startActivity(intent);
-//            }
-//
-//        }, 2000);
-
-
-    }
-    public String parseId(String id) {
-        switch (id) {
-            case "Technology":
-                return "c1";
-            case "Sports":
-                return "c2";
-            case "Movies":
-                return "c3";
-            case "General Knowledge":
-                return "c4";
-            case "Science":
-                return "c5";
-            case "Arts":
-                return "c6";
-            case "Books":
-                return "c7";
-            case "Mathematics":
-                return "c8";
-            case "Geography":
-                return "c9";
-            case "Music":
-                return "c10";
-            default:
-                return "c0";
-        }
 
     }
 

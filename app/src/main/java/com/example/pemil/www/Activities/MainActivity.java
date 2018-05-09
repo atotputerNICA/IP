@@ -127,10 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null) {
-            Log.d("FIREBASE UID", currentUser.getUid());
-        }
-
         updateUI(currentUser);
     }
 
@@ -139,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
      * Checks if in the data base there is an user with the specified
      * credentials
      *
-     * @param view
+     * @param view login button
      */
     public void loginWithEmail(View view) {
         String email = emailEditText.getText().toString();
@@ -207,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Login with Google API
      *
-     * @param view
+     * @param view Google login button
      */
     public void loginWithGoogle(View view) {
         signInMethod = GOOGLE;
@@ -223,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Initialize Login with Facebook API
      *
-     * @param view
+     * @param view Facebook login button
      */
     public void loginWithFacebook(View view) {
         signInMethod = FACEBOOK;
@@ -262,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Login Implementation
      *
-     * @param token
+     * @param token handler
      */
     private void handleFacebookAccessToken(final AccessToken token) {
         Log.d(FACEBOOK_TAG, "handleFacebookAccessToken:" + token);
@@ -383,6 +379,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+     * Method that updates the UI to the Category Activity
+     * */
     private void updateUI(FirebaseUser user) {
 
         if (user != null) {
@@ -400,13 +399,6 @@ public class MainActivity extends AppCompatActivity {
             String personGivenName = account.getGivenName();
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
-            Uri personPhoto = account.getPhotoUrl();
-
-
-//            //TODO - send personPhoto to storage
-//            if (personPhoto != null) {
-//                addToStorage(id, "http://lh6.ggpht.com" + personPhoto.getPath() + "?width=500&height=500");
-//            }
 
             user = new User(personGivenName,
                     personFamilyName,
@@ -427,16 +419,10 @@ public class MainActivity extends AppCompatActivity {
         User user = null;
         Log.d("FACEBOOK JSON", String.valueOf(object));
 
-        String userId;
         String firstName = null;
         String lastName = null;
         String email = null;
         try {
-            userId = object.getString("id");
-//            URL profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
-//            Uri uri = Uri.parse(profilePicture.toURI().toString());
-
-           // addToStorage(id, "https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
 
             if (object.has("first_name"))
                 firstName = object.getString("first_name");
@@ -459,32 +445,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return user;
-    }
-
-    private void addToStorage(String id, String photoUri) {
-        Log.d("STORAGE URI", photoUri);
-        Log.d("STORAGE ID", id);
-
-        Uri uri = Uri.parse(photoUri);
-
-        StorageReference riversRef = mStorageRef.child("Users/" + id);
-
-        riversRef.putFile(uri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Log.d("STORAGE REFERENCE", "onSucces:succes: " + downloadUrl);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
-                    }
-                });
     }
 
 }

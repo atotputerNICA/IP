@@ -183,15 +183,14 @@ public class SignUpActivity extends AppCompatActivity {
                                      * signed in user can be handled in the listener.
                                      */
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(SignUpActivity.this, "Authentication failed." + task.getException(),
+                                        Toast.makeText(SignUpActivity.this,
+                                                "Authentication failed." + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
                                         String date = Integer.toString(month) + "\\" +
                                                 Integer.toString(day) + "\\" +
                                                 Integer.toString(year);
 
-                                        BitmapDrawable drawable = (BitmapDrawable) profileImage.getDrawable();
-                                        //TODO - send drawable to storage
                                         //create user
                                         User user = new User(name.getText().toString(),
                                                 surname.getText().toString(),
@@ -229,7 +228,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     protected void onResume() {
-
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
@@ -346,7 +344,7 @@ public class SignUpActivity extends AppCompatActivity {
      * Checks if all the fields were completed
      * correctly
      *
-     * @return
+     * @return true is all fields are completed, false otherwise
      */
     private boolean allFieldsAreCompletedCorrectly() {
         boolean to_return = true;
@@ -405,7 +403,9 @@ public class SignUpActivity extends AppCompatActivity {
             to_return = false;
         }
         if (!to_return) {
-            Toast.makeText(getApplicationContext(), getString(R.string.have_to_complete), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),
+                    getString(R.string.have_to_complete),
+                    Toast.LENGTH_SHORT).show();
         }
         return to_return;
     }
@@ -418,10 +418,11 @@ public class SignUpActivity extends AppCompatActivity {
         if (requestCode == 3 && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                Bitmap bitmap = MediaStore.
+                        Images.
+                        Media.
+                        getBitmap(this.getContentResolver(), selectedImage);
                 profileImage.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }

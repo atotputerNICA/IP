@@ -19,7 +19,6 @@ import java.util.HashMap;
  */
 
 public class CategoryDataSource {
-    public FirebaseDatabase dataBase ;
     public DatabaseReference categoryDataBaseRef;
     private static final int NUM_OF_QUESTIONS = 10;
     private static final int NUM_OF_CATEGORIES = 4;
@@ -30,7 +29,7 @@ public class CategoryDataSource {
             "Entertainment: Music"
     };
    private static ArrayList<Category> categories;
-   public boolean stop = false;
+   private boolean stop = false;
 
     public CategoryDataSource() {
 
@@ -43,7 +42,6 @@ public class CategoryDataSource {
 
     /**
      * select from database
-     * @return list of Category Object
      */
     public void selectCategories() {
 
