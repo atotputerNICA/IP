@@ -131,6 +131,7 @@
                     app:border_color="@color/white"
                     app:border_width="3dp"
                     android:gravity="left"
+                    android:visibility="invisible"
                     android:layout_marginTop="20dp"/>
 
                 <TextView
@@ -139,6 +140,7 @@
                     android:id="@+id/player1_name"
                     android:text="Name1"
                     android:layout_marginTop="10dp"
+                    android:visibility="invisible"
                     android:textColor="#4953b1"
                     android:textSize="20sp"/>
             </LinearLayout>
@@ -164,6 +166,7 @@
                         app:border_color="@color/white"
                         app:border_width="3dp"
                         android:gravity="left"
+                        android:visibility="invisible"
                         android:layout_marginTop="20dp"/>
 
                     <TextView
@@ -173,6 +176,7 @@
                         android:text="Name2"
                         android:layout_marginTop="10dp"
                         android:textColor="#4953b1"
+                        android:visibility="invisible"
                         android:textSize="20sp"/>
                 </LinearLayout>
             </LinearLayout>
@@ -191,6 +195,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textColor="#4953b1"
+                android:visibility="invisible"
                 android:textSize="24sp"/>
         </LinearLayout>
 
