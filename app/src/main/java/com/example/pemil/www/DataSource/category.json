@@ -5367,32 +5367,236 @@
       }
     ]
   },
-  "Users":{
-    "Dana-N437":{
-      "birthday":"4\\5\\2018",
-      "country":"r",
-      "email":"g@gmail.com",
-      "id":"Dana-N437",
-      "name":"Dana-Maria Nica",
-      "password":"danaF5!",
-      "surname":"Nica",
-      "telephone":15555215554
+  "Users" : {
+    "0AaQ3c4y3IbPAct5ovTZzbhMkUF2" : {
+      "birthday" : "4\\15\\1994",
+      "country" : "Narnia",
+      "email" : "alice@gmail.com",
+      "id" : "0AaQ3c4y3IbPAct5ovTZzbhMkUF2",
+      "name" : "Alice",
+      "password" : "",
+      "surname" : "Wonder",
+      "telephone" : 555123
     },
-    "ff903":{
-      "birthday":"4\\5\\2018",
-      "country":"f",
-      "email":"t@gmail.com",
-      "id":"ff903",
-      "name":"f",
-      "password":"Dana56!",
-      "surname":"f",
-      "telephone":2
+    "7bAYR0CgaLYQHIIUyrm47fIsfzB2" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "nicadanamaria@gmail.com",
+      "id" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+      "name" : "Dana-Maria",
+      "password" : "",
+      "surname" : "Nica",
+      "telephone" : 0
+    },
+    "ANXBMTGaWLcT2rF2rffzkQF157a2" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "ionut.baciu@lsacbucuresti.ro",
+      "id" : "ANXBMTGaWLcT2rF2rffzkQF157a2",
+      "name" : "Ionut",
+      "password" : "",
+      "surname" : "Baciu",
+      "telephone" : 0
+    },
+    "ZAKFw9KJfIc0ibF54xp47LpYfUg1" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "emilia.palaghita@lsacbucuresti.ro",
+      "id" : "ZAKFw9KJfIc0ibF54xp47LpYfUg1",
+      "name" : "Emilia",
+      "password" : "",
+      "surname" : "Palaghita",
+      "telephone" : 0
+    },
+    "ZgqYT3974AVMzknkSaZjYGjUp3g2" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "ionut.b096@gmail.com",
+      "id" : "ZgqYT3974AVMzknkSaZjYGjUp3g2",
+      "name" : "Baciu",
+      "password" : "",
+      "surname" : "Ionut",
+      "telephone" : 0
+    },
+    "dFEUcgWMcIak9rkIduSzsNuzygm2" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "stupid.ghost1996@yahoo.com",
+      "id" : "dFEUcgWMcIak9rkIduSzsNuzygm2",
+      "name" : "Ionut",
+      "password" : "",
+      "surname" : "Baciu",
+      "telephone" : 0
+    },
+    "djfloDrXjxSVFA66l5vtSm2Ubkf1" : {
+      "birthday" : "4\\7\\2018",
+      "country" : "Romania",
+      "email" : "email@email.com",
+      "id" : "djfloDrXjxSVFA66l5vtSm2Ubkf1",
+      "name" : "Hrjf",
+      "password" : "Aaaaa1!",
+      "surname" : "Jfhrh",
+      "telephone" : 986835
+    },
+    "yMta43sO2Ja195cUXZzANKIlnSV2" : {
+      "birthday" : "",
+      "country" : "",
+      "email" : "p.emilia89@gmail.com",
+      "id" : "yMta43sO2Ja195cUXZzANKIlnSV2",
+      "name" : "Emilia",
+      "password" : "",
+      "surname" : "Palaghita",
+      "telephone" : 0
     }
   },
-  "games":{
-    "-LBmcWtN7w6w2bA18GEk":{
-      "-LBmcWtN7w6w2bA18GEl":"player0"
+  "games" : {
+    "General Knowledge" : {
+      "-LCaLz1kh2UG81cU5NkU" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 10,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 40,
+        "questions" : [ 34, 23, 16, 5, 43, 47, 9, 4, 19, 38 ]
+      }
+    },
+    "Geography" : {
+      "-LC1IME53UwZqQbCuiuz" : {
+        "player1" : "ZAKFw9KJfIc0ibF54xp47LpYfUg1",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 17, 47, 41, 12, 8, 10, 14, 43, 23, 42 ]
+      },
+      "-LCaIaaH_m935-prrIb4" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 40,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 20,
+        "questions" : [ 15, 33, 28, 9, 12, 45, 5, 27, 39, 19 ]
+      }
+    },
+    "Mathematics" : {
+      "-LC1221JdOEeb4MBRPw3" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 1, 5, 35, 31, 39, 25, 20, 30, 34, 20 ]
+      },
+      "-LCaJngm2H3UMDsZ3kQR" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 50,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 40,
+        "questions" : [ 32, 36, 25, 18, 32, 10, 18, 14, 37, 27 ]
+      }
+    },
+    "Movies" : {
+      "-LC31DNlZ4nyIfyc72xQ" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 40,
+        "player2" : "0AaQ3c4y3IbPAct5ovTZzbhMkUF2",
+        "questions" : [ 38, 49, 42, 8, 21, 17, 25, 1, 6, 46 ]
+      },
+      "-LCaKV2RtENkrqtTc4Ra" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 10,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 40,
+        "questions" : [ 23, 30, 25, 43, 11, 2, 46, 17, 34, 5 ]
+      },
+      "-LCaL8VnbZk1GTzKp3p8" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 10,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 40,
+        "questions" : [ 33, 44, 45, 24, 46, 42, 13, 43, 20, 48 ]
+      },
+      "-LCaR5vP1DFnI-ALa9dw" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 10,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 30,
+        "questions" : [ 49, 41, 6, 13, 22, 45, 23, 24, 36, 23 ]
+      },
+      "-LCaTl0yRJ6Rs874TU3U" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 10,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 10,
+        "questions" : [ 0, 3, 13, 26, 13, 47, 43, 42, 35, 40 ]
+      }
+    },
+    "Music" : {
+      "-LCaI1tianNqyT4g09b6" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player1score" : 30,
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2score" : 20,
+        "questions" : [ 31, 36, 21, 41, 28, 25, 11, 32, 7, 16 ]
+      }
+    },
+    "Science" : {
+      "-LC2z3sNAFwiPRZjIeXL" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 15, 18, 27, 29, 18, 37, 18, 31, 25, 4 ]
+      },
+      "-LC_NoiDHfcf_5-wQk1q" : {
+        "player1" : "0AaQ3c4y3IbPAct5ovTZzbhMkUF2",
+        "questions" : [ 4, 21, 40, 14, 16, 41, 45, 12, 3, 16 ]
+      }
+    },
+    "Sports" : {
+      "-LC0zm429v87mEiwwR8k" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 26, 5, 21, 12, 2, 43, 41, 15, 42, 10 ]
+      },
+      "-LC0zrihH1ywgc6SZPJB" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 13, 13, 43, 23, 2, 29, 5, 36, 12, 5 ]
+      },
+      "-LC1IoKOPqBQrvNyj4dw" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 41, 9, 0, 42, 25, 30, 47, 33, 31, 23 ]
+      },
+      "-LC43aLf0t8H4gtf6oln" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 23, 18, 45, 15, 14, 15, 4, 15, 15, 1 ]
+      }
+    },
+    "Technology" : {
+      "-LC1HyYvFRgZ6nXYmRtX" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "ZAKFw9KJfIc0ibF54xp47LpYfUg1",
+        "questions" : [ 18, 39, 30, 13, 11, 3, 7, 41, 26, 26 ]
+      },
+      "-LC1J35YCllneQcxPytO" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 45, 9, 31, 35, 24, 26, 48, 41, 15, 37 ]
+      },
+      "-LCaHgUHYHyTU255KJGw" : {
+        "player1" : "g2kwo0qKetdaOzpzMzQLcHaRXJv2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 21, 16, 12, 7, 34, 19, 42, 6, 45, 39 ]
+      },
+      "-LCaHu_pAZxSKLkJwn1a" : {
+        "player1" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "player2" : "7bAYR0CgaLYQHIIUyrm47fIsfzB2",
+        "questions" : [ 29, 13, 7, 20, 25, 24, 49, 27, 38, 0 ]
+      }
     }
   },
-  "matchmaker":"-LBmcWtN7w6w2bA18GEk"
+  "matchmaker" : {
+    "Arts" : "none",
+    "Books" : "none",
+    "General Knowledge" : "none",
+    "Geography" : "none",
+    "Mathematics" : "none",
+    "Movies" : "none",
+    "Music" : "none",
+    "Science" : "none",
+    "Sports" : "none",
+    "Technology" : "none"
+  }
 }
