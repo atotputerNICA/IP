@@ -1,5 +1,6 @@
 package com.example.pemil.www.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,6 +24,8 @@ import com.example.pemil.www.R;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -55,6 +59,10 @@ public class GameActivity extends AppCompatActivity {
     private String matchmaker;
     private String player;
 
+    private ProgressDialog progressBar;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference mGamesReference = database.getReference("games");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -73,7 +81,8 @@ public class GameActivity extends AppCompatActivity {
         category = intent.getStringExtra("CATEGORY");
         matchmaker = intent.getStringExtra("MATCHMAKER");
         player = intent.getStringExtra("PLAYER");
-
+        if (gameType.equals("Multi Player"))
+            mGamesReference = mGamesReference.child(category).child(matchmaker);
         toast = new Toast(this);
 
         //attribute of the circular progress bar
@@ -133,16 +142,35 @@ public class GameActivity extends AppCompatActivity {
         // finished questions
         if (j == 10) {
             j = 0;
-            Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
-            intent.putExtra("correct", l);
-            intent.putExtra("attemp", k);
-            intent.putExtra("GAME_TYPE", gameType);
-            intent.putExtra("CATEGORY", category);
-            intent.putExtra("MATCHMAKER", matchmaker);
-            intent.putExtra("PLAYER", player);
+            progressBar = new ProgressDialog(v.getContext());//Create new object of progress bar type
+            progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
+            progressBar.setMessage("Collecting data!");//Title shown in the progress bar
+            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
+            progressBar.setProgress(0);//attributes
+            progressBar.setMax(100);//attributes
+            progressBar.show();//show the progress bar
+            //This handler will add a delay of 5 seconds
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //Intent start to open the navigation drawer activity
+                    progressBar.cancel();//Progress bar will be cancelled (hide from screen) when
+                    // this run function will execute after 5 seconds
+                    Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
+                    intent.putExtra("correct", l);
+                    intent.putExtra("attemp", k);
+                    intent.putExtra("GAME_TYPE", gameType);
+                    intent.putExtra("CATEGORY", category);
+                    intent.putExtra("MATCHMAKER", matchmaker);
+                    intent.putExtra("PLAYER", player);
+                    if (gameType.equals("Multi Player"))
+                        mGamesReference.child(player+"score").setValue(10 * l);
+                    startActivity(intent);
+                    finish();
+                }
 
-            startActivity(intent);
-            finish();
+            }, 5000);
+
         }
 
         /*

@@ -124,25 +124,9 @@ public class ScoreActivity extends AppCompatActivity {
 
 
         if (gameType.equals("Multi Player")) {
-            mGamesReference.child(player+"score").setValue(scor);
+//            mGamesReference.child(player+"score").setValue(scor);
             final String[] players = new String[2];
-            progressBar = new ProgressDialog(player1.getContext());//Create new object of progress bar type
-            progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
-            progressBar.setMessage("Collecting data!");//Title shown in the progress bar
-            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-            progressBar.setProgress(0);//attributes
-            progressBar.setMax(100);//attributes
-            progressBar.show();//show the progress bar
-            //This handler will add a delay of 5 seconds
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    //Intent start to open the navigation drawer activity
-                    progressBar.cancel();//Progress bar will be cancelled (hide from screen) when
-                                        // this run function will execute after 5 seconds
-                }
 
-            }, 5000);
             mGamesReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -153,8 +137,13 @@ public class ScoreActivity extends AppCompatActivity {
                     players[0] = player.equals("player1") ? p1 : p2;
                     players[1] = player.equals("player1") ? p2 : p1;
                     Log.i("FKFDKFKDLFK", players[0] + " " + players[1]);
-                    result1 = dataSnapshot.child("player1score").getValue(Long.class);
-                    result2 = dataSnapshot.child("player2score").getValue(Long.class);
+                    if (player.equals("player1")) {
+                        result1 = dataSnapshot.child("player1score").getValue(Long.class);
+                        result2 = dataSnapshot.child("player2score").getValue(Long.class);
+                    } else {
+                        result1 = dataSnapshot.child("player2score").getValue(Long.class);
+                        result2 = dataSnapshot.child("player1score").getValue(Long.class);
+                    }
                     if (result1 > result2) {
                         result.setText("Wew, you won! Congrats!");
                     } else {
