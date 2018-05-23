@@ -150,6 +150,8 @@ public class GameActivity extends AppCompatActivity {
             progressBar.setMax(100);//attributes
             progressBar.show();//show the progress bar
             //This handler will add a delay of 5 seconds
+            if (gameType.equals("Multi Player"))
+                mGamesReference.child(player+"score").setValue(10 * l);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -163,13 +165,12 @@ public class GameActivity extends AppCompatActivity {
                     intent.putExtra("CATEGORY", category);
                     intent.putExtra("MATCHMAKER", matchmaker);
                     intent.putExtra("PLAYER", player);
-                    if (gameType.equals("Multi Player"))
-                        mGamesReference.child(player+"score").setValue(10 * l);
+
                     startActivity(intent);
                     finish();
                 }
 
-            }, 5000);
+            }, 5500);
 
         }
 
